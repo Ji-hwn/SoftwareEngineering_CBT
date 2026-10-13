@@ -1,4 +1,5 @@
 import type {Answer,Question,StudyState,ExamSettings,Exam} from './types';
+import {isMidtermExcluded,isMidtermPriority,hintScore} from './professorHints';
 export const KEY='jihwanlee-se-cbt-v1';
 export const emptyState=():StudyState=>({version:1,content_revision:2,completed:[],completedPages:[],bookmarks:[],reviews:{},cardReviews:{},memoryAttempts:[],attempts:[],wrong:{},notes:{},history:[],active:null,settings:{theme:'light',font:17,criticalRatio:70,profile:'jihwanlee'},exposure:{}});
 export const normalize=(s:string)=>s.normalize('NFKC').toLocaleLowerCase().replace(/\s+/g,'').trim();
@@ -49,25 +50,37 @@ export function reviewConcept(state:StudyState,id:string,known:boolean,now=Date.
 }
 export function remaining(exam:Exam,now=Date.now()){return Math.max(0,Math.ceil((exam.deadline-now)/1000))}
 export function selectQuestions(all:Question[],settings:ExamSettings,state:StudyState,rng=Math.random){
-  const pool=all.filter(q=>q.verified&&!q.retired&&(!settings.lectures.length||settings.lectures.includes(q.lecture_id))&&settings.types.includes(q.question_type)&&(!settings.wrongOnly||!!state.wrong[q.question_id]));
+  const pool=all.filter(q=>q.verified&&!q.retired&&!isMidtermExcluded(q)&&(!settings.lectures.length||settings.lectures.includes(q.lecture_id))&&settings.types.includes(q.question_type)&&(!settings.wrongOnly||!!state.wrong[q.question_id]));
   const count=Math.min(settings.count,pool.length);const target=Math.round(count*settings.criticalRatio/100);
-  const crit=pool.filter(q=>q.emphasis_related);const normal=pool.filter(q=>!q.emphasis_related);
+  const crit=pool.filter(isMidtermPriority);const normal=pool.filter(q=>!isMidtermPriority(q));
   const criticalTarget=Math.min(crit.length,Math.max(target,count-normal.length));
   const sum=settings.difficulty.easy+settings.difficulty.medium+settings.difficulty.hard;
   const quotas={easy:count*(sum?settings.difficulty.easy/sum:.3),medium:count*(sum?settings.difficulty.medium/sum:.5),hard:count*(sum?settings.difficulty.hard/sum:.2)};
   const selected:Question[]=[];const used=new Set<string>();const diffCount={easy:0,medium:0,hard:0};const lectureCount:Record<string,number>={};const conceptCount:Record<string,number>={};
   let cc=0;
+  // The user's professor specifically said 3R would appear. For a normal
+  // midterm mock exam, represent it at least once when eligible, without
+  // bypassing explicit lecture/type/0%-priority/wrong-only filters.
+  if(count>0 && settings.criticalRatio>0 && !settings.wrongOnly &&
+     (!settings.lectures.length || settings.lectures.includes('L01'))){
+    const threeR=pool.filter(q=>q.concept_id==='3r'&&isMidtermPriority(q))
+      .sort((a,b)=>(state.exposure[a.question_id]??0)-(state.exposure[b.question_id]??0))[0];
+    if(threeR){
+      selected.push(threeR);used.add(threeR.question_id);cc++;
+      diffCount[threeR.difficulty]++;lectureCount[threeR.lecture_id]=1;conceptCount[threeR.concept_id]=1;
+    }
+  }
   while(selected.length<count){
     const wantCrit=cc<criticalTarget&&(selected.length-cc>=count-criticalTarget||cc<(selected.length+1)*criticalTarget/count);
-    const candidates=pool.filter(q=>!used.has(q.question_id)&&q.emphasis_related===wantCrit);
+    const candidates=pool.filter(q=>!used.has(q.question_id)&&isMidtermPriority(q)===wantCrit);
     let best:Question|undefined;let score=-Infinity;
     for(const q of candidates){
       const dscore=quotas[q.difficulty]-diffCount[q.difficulty];
-      const value=(lectureCount[q.lecture_id]?0:12)+dscore*5-(conceptCount[q.concept_id]??0)*4-(state.exposure[q.question_id]??0)*3+rng();
+      const value=(lectureCount[q.lecture_id]?0:60)+dscore*5-(conceptCount[q.concept_id]??0)*4-(state.exposure[q.question_id]??0)*3+hintScore(q)+(q.concept_id==='3r'&&selected.length===0&&settings.criticalRatio>0?1000:0)+rng();
       if(value>score){best=q;score=value}
     }
     if(!best)break;
-    selected.push(best);used.add(best.question_id);cc+=best.emphasis_related?1:0;diffCount[best.difficulty]++;lectureCount[best.lecture_id]=(lectureCount[best.lecture_id]??0)+1;conceptCount[best.concept_id]=(conceptCount[best.concept_id]??0)+1;
+    selected.push(best);used.add(best.question_id);cc+=isMidtermPriority(best)?1:0;diffCount[best.difficulty]++;lectureCount[best.lecture_id]=(lectureCount[best.lecture_id]??0)+1;conceptCount[best.concept_id]=(conceptCount[best.concept_id]??0)+1;
   }
   const notices=[];
   if(count<settings.count)notices.push(`조건에 맞는 검증 문항이 ${count}개입니다. 중복 없이 ${count}문항으로 시작합니다.`);

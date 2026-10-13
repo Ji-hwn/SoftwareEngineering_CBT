@@ -28,3 +28,6 @@ playwright-report/
 *.tsbuildinfo
 scripts/refine.py
 scripts/finalize_text.py
+
+APPLY_PROFESSOR_HINTS.md
+PROFESSOR_MIDTERM_HINTS.md

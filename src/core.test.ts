@@ -27,3 +27,23 @@ describe('persistence and exam lifecycle',()=>{
  it('absolute deadline survives serialization',()=>{const e:Exam={id:'e',question_ids:[],answers:{},flags:[],started:0,deadline:60000,settings};expect(remaining(e,50000)).toBe(10);expect(remaining(e,65000)).toBe(0)});
  it('submission saves score, unanswered, history, and wrong records exactly once',()=>{const c=q('choice');const second=q('ox');const s=emptyState();s.active={id:'e',question_ids:[c.question_id,second.question_id],answers:{[c.question_id]:0},flags:[],started:0,deadline:1000,settings};const result=finishExam(s,course.questions,1500);expect(result.history[0].score).toBe(50);expect(result.history[0].unanswered).toBe(1);expect(result.history[0].submitted).toBe(1000);expect(result.active).toBeNull();expect(Object.keys(result.wrong)).toContain(second.question_id);expect(finishExam(result,course.questions)).toEqual(result)});
 });
+
+
+describe('user-recorded professor midterm hints',()=>{
+ it('does not select the XP 12 practices in a midterm mock exam',()=>{
+  const items=selectQuestions(course.questions,{...settings,lectures:['L10'],count:50},emptyState(),()=>.5).questions;
+  expect(items.every(q=>q.concept_id!=='xp-practices')).toBe(true);
+ });
+ it('keeps XP practice material available for teaching and the question bank',()=>{
+  expect(course.concepts.some(c=>c.concept_id==='xp-practices')).toBe(true);
+  expect(course.questions.some(q=>q.concept_id==='xp-practices'&&!q.retired)).toBe(true);
+ });
+ it('prioritizes a 3R item in an ordinary all-syllabus emphasized mock exam',()=>{
+  const items=selectQuestions(course.questions,settings,emptyState(),()=>.5).questions;
+  expect(items.some(q=>q.concept_id==='3r')).toBe(true);
+ });
+ it('does not force 3R when Lecture 01 or emphasized questions are excluded by filters',()=>{
+  const items=selectQuestions(course.questions,{...settings,lectures:['L03']},emptyState(),()=>.5).questions;
+  expect(items.some(q=>q.concept_id==='3r')).toBe(false);
+ });
+});

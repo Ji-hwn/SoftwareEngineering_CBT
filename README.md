@@ -80,3 +80,16 @@ React / TypeScript / Vite / React Router HashRouter / CSS / Lucide / Vitest / Pl
 CI가 생성한 검사 결과는 작업 중의 임시 파일이며 저장소나 Pages 배포 산출물에 넣지 않습니다. `scripts/check_public_files.mjs`가 추적된 파일과 빌드에서 원본·내부 검수 파일 포함 여부를 검사합니다.
 
 공식 문서: [GitHub Pages 사용자 지정 워크플로](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+
+
+## 교수님 중간고사 구두 힌트 (추가 패치, 2026-10-13)
+
+왼쪽 메뉴의 **교수님 시험 힌트**에서 과목별 힌트가 아닌 *소프트웨어공학 힌트만* 확인할 수 있습니다. 교수님의 발언은 PDF의 빨간 글씨 중요도와 별도로 관리합니다.
+
+- 3R: 전체 범위의 기본 중간고사 CBT에 1문항 이상 포함 (Lecture 01 및 관련 문제 유형이 선택된 경우)
+- 기존 70% 강조 출제: PDF의 직접 강조 또는 구두 힌트와 연결된 문항 우선
+- XP 12가지 실천사항: 중간고사 CBT에서 제외, 강의실·암기실·문제은행에는 보존
+- 강의 페이지별 교수님 힌트 표시 및 관련 문제 바로가기
+- 원본 PDF 대조 문항 16개 추가 (`q-prof-001`–`q-prof-016`), 기존 기록의 ID 불변
+
+원래 학습 범위의 일반 개념은 삭제되지 않습니다. 구두 힌트의 출처와 적용 범위는 웹사이트의 교수님 시험 힌트 화면에서 확인할 수 있습니다.

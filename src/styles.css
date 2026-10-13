@@ -11,3 +11,32 @@
 /* Precision learning additions preserve the existing palette and layout. */
 .atomic-list {padding-left:1.5rem;line-height:1.9}.atomic-list li {padding:.35rem .4rem;margin:.2rem 0;border-bottom:1px solid var(--line);color:var(--text)}.atomic-list li.critical {border-left:3px solid #c45b48;background:var(--card)}.atomic-list small {display:inline-block;margin-left:.75rem;font-size:.75rem;color:#c45b48}.shared-concepts>summary {padding:1rem;cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:14px;margin:1rem 0}.keyword-inputs {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin:1rem 0}.keyword-inputs label {display:grid;gap:.4rem;font-size:.85rem}.keyword-inputs input {width:100%;min-width:0;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--text);padding:.6rem}.memory-prompt,.memory-answer,.explanation>p {white-space:pre-line;overflow-wrap:anywhere}.keyword-results {text-align:left;background:var(--bg);padding:1rem;border-radius:12px}.keyword-results .incorrect {color:#bd5148}.keyword-results .correct {color:var(--accent)}.page-lesson .practice {margin-top:1rem}.memory-wrap .flashcard {height:auto;min-height:420px}.atomic-list li:target {outline:2px solid var(--accent)}
 @media(max-width:600px){.keyword-inputs{grid-template-columns:1fr}.filterbar select{max-width:100%}.atomic-list{padding-left:1.1rem}}
+
+/* User-recorded professor's midterm hints: separate from red PDF emphasis. */
+.hints-page .hint-section{margin-top:28px}
+.hints-page .hint-section>h2{font-size:1.14rem;margin:0 0 14px}
+.hints-notice{display:flex;gap:12px;align-items:flex-start;padding:18px}
+.hints-notice p{margin:7px 0 0;color:var(--muted);line-height:1.7}
+.hint-summary{display:flex;gap:24px;flex-wrap:wrap;margin-top:18px;padding:16px 20px}
+.hint-summary span{display:flex;gap:8px;align-items:center;color:var(--muted)}
+.hint-summary strong{color:var(--ink)}
+.hint-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.hint-card{display:flex;flex-direction:column;gap:12px;min-width:0}
+.hint-card h3{margin:0;font-size:1.08rem}
+.hint-card p{margin:0;color:var(--muted);line-height:1.65;flex:1}
+.hint-meta{font-size:.81rem;color:var(--muted)}
+.hint-actions{display:flex;gap:8px;flex-wrap:wrap}
+.hint-card.hint-certain-remark{border-left:4px solid #b83e40}
+.hint-card.hint-very-high{border-left:4px solid #c77933}
+.hint-card.hint-high{border-left:4px solid #5277a9}
+.hint-card.hint-excluded{border-left:4px solid #888}
+.hint-tag{font-weight:700}
+.page-hints{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.page-hint{border:1px solid var(--line);border-radius:9px;padding:8px 12px;text-decoration:none;color:var(--ink);font-size:.85rem}
+.page-hint.hint-certain-remark strong{color:#b83e40}
+.page-hint.hint-very-high strong{color:#b87724}
+.page-hint.hint-excluded strong{color:var(--muted)}
+.hint-bottom{margin-top:28px}
+.hint-bottom p{color:var(--muted);line-height:1.7}
+@media(max-width:750px){.hint-grid{grid-template-columns:1fr}.hint-summary{gap:10px 18px}}
+.sidebar{overflow-y:auto}

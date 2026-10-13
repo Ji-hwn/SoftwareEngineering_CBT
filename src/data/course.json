@@ -585,7 +585,8 @@
         "q-3r-1",
         "q-3r-2",
         "q-3r-3",
-        "q-v2-3r-1"
+        "q-v2-3r-1",
+        "q-prof-001"
       ],
       "diagrams": [],
       "formulas": [],
@@ -594,7 +595,8 @@
       "active_question_ids": [
         "q-3r-2",
         "q-3r-3",
-        "q-v2-3r-1"
+        "q-v2-3r-1",
+        "q-prof-001"
       ]
     },
     {
@@ -680,7 +682,8 @@
         "q-reengineering-1",
         "q-reengineering-2",
         "q-reengineering-3",
-        "q-v2-reengineering-1"
+        "q-v2-reengineering-1",
+        "q-prof-002"
       ],
       "diagrams": [],
       "formulas": [],
@@ -689,7 +692,8 @@
       "active_question_ids": [
         "q-reengineering-2",
         "q-reengineering-3",
-        "q-v2-reengineering-1"
+        "q-v2-reengineering-1",
+        "q-prof-002"
       ]
     },
     {
@@ -1166,7 +1170,8 @@
       "question_ids": [
         "q-maintenance-1",
         "q-maintenance-2",
-        "q-maintenance-3"
+        "q-maintenance-3",
+        "q-prof-003"
       ],
       "diagrams": [],
       "formulas": [],
@@ -1174,7 +1179,8 @@
       "legacy_importance": "Critical",
       "active_question_ids": [
         "q-maintenance-2",
-        "q-maintenance-3"
+        "q-maintenance-3",
+        "q-prof-003"
       ]
     },
     {
@@ -1905,7 +1911,8 @@
         "q-agile-1",
         "q-agile-2",
         "q-agile-3",
-        "q-v2-agile-1"
+        "q-v2-agile-1",
+        "q-prof-004"
       ],
       "diagrams": [],
       "formulas": [],
@@ -1914,7 +1921,8 @@
       "active_question_ids": [
         "q-agile-2",
         "q-agile-3",
-        "q-v2-agile-1"
+        "q-v2-agile-1",
+        "q-prof-004"
       ]
     },
     {
@@ -2819,7 +2827,9 @@
         "q-cocomo-1",
         "q-cocomo-2",
         "q-cocomo-3",
-        "q-v2-cocomo-1"
+        "q-v2-cocomo-1",
+        "q-prof-005",
+        "q-prof-006"
       ],
       "diagrams": [],
       "formulas": [],
@@ -2828,7 +2838,9 @@
       "active_question_ids": [
         "q-cocomo-2",
         "q-cocomo-3",
-        "q-v2-cocomo-1"
+        "q-v2-cocomo-1",
+        "q-prof-005",
+        "q-prof-006"
       ]
     },
     {
@@ -4906,14 +4918,16 @@
       "verification_status": "source-reviewed",
       "question_ids": [
         "q-diagram-types-1",
-        "q-v2-recall-diagram-types"
+        "q-v2-recall-diagram-types",
+        "q-prof-007"
       ],
       "diagrams": [],
       "formulas": [],
       "review_note": "",
       "legacy_importance": "Important",
       "active_question_ids": [
-        "q-v2-recall-diagram-types"
+        "q-v2-recall-diagram-types",
+        "q-prof-007"
       ]
     },
     {
@@ -5366,7 +5380,8 @@
       "verification_status": "source-reviewed",
       "question_ids": [
         "q-usecase-diagram-1",
-        "q-v2-recall-usecase-diagram"
+        "q-v2-recall-usecase-diagram",
+        "q-prof-009"
       ],
       "diagrams": [
         "usecase"
@@ -5375,7 +5390,8 @@
       "review_note": "",
       "legacy_importance": "Important",
       "active_question_ids": [
-        "q-v2-recall-usecase-diagram"
+        "q-v2-recall-usecase-diagram",
+        "q-prof-009"
       ]
     },
     {
@@ -5663,7 +5679,8 @@
       "verification_status": "source-reviewed",
       "question_ids": [
         "q-state-diagram-1",
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ],
       "diagrams": [
         "state"
@@ -5672,7 +5689,8 @@
       "review_note": "",
       "legacy_importance": "Important",
       "active_question_ids": [
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ]
     },
     {
@@ -6007,14 +6025,18 @@
       "verification_status": "source-reviewed",
       "question_ids": [
         "q-actors-1",
-        "q-v2-actors-1"
+        "q-v2-actors-1",
+        "q-prof-010",
+        "q-prof-011"
       ],
       "diagrams": [],
       "formulas": [],
       "review_note": "",
       "legacy_importance": "Standard",
       "active_question_ids": [
-        "q-v2-actors-1"
+        "q-v2-actors-1",
+        "q-prof-010",
+        "q-prof-011"
       ]
     },
     {
@@ -6051,7 +6073,8 @@
       "verification_status": "source-reviewed",
       "question_ids": [
         "q-include-1",
-        "q-include-2"
+        "q-include-2",
+        "q-prof-012"
       ],
       "diagrams": [
         "include"
@@ -6060,7 +6083,8 @@
       "review_note": "",
       "legacy_importance": "Important",
       "active_question_ids": [
-        "q-include-2"
+        "q-include-2",
+        "q-prof-012"
       ]
     },
     {
@@ -6547,7 +6571,9 @@
       "question_ids": [
         "q-xp-values-1",
         "q-xp-values-2",
-        "q-xp-values-3"
+        "q-xp-values-3",
+        "q-prof-013",
+        "q-prof-014"
       ],
       "diagrams": [],
       "formulas": [],
@@ -6555,7 +6581,9 @@
       "legacy_importance": "Critical",
       "active_question_ids": [
         "q-xp-values-2",
-        "q-xp-values-3"
+        "q-xp-values-3",
+        "q-prof-013",
+        "q-prof-014"
       ]
     },
     {
@@ -6664,7 +6692,8 @@
       "question_ids": [
         "q-scrum-1",
         "q-scrum-2",
-        "q-scrum-3"
+        "q-scrum-3",
+        "q-prof-015"
       ],
       "diagrams": [],
       "formulas": [],
@@ -6672,7 +6701,8 @@
       "legacy_importance": "Critical",
       "active_question_ids": [
         "q-scrum-2",
-        "q-scrum-3"
+        "q-scrum-3",
+        "q-prof-015"
       ]
     },
     {
@@ -6881,14 +6911,16 @@
       "verification_status": "source-reviewed",
       "question_ids": [
         "q-scrum-roles-1",
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ],
       "diagrams": [],
       "formulas": [],
       "review_note": "",
       "legacy_importance": "Important",
       "active_question_ids": [
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ]
     },
     {
@@ -20263,6 +20295,824 @@
         "a-L10-p011-09"
       ],
       "emphasis_basis": "general"
+    },
+    {
+      "question_id": "q-prof-001",
+      "concept_id": "3r",
+      "lecture_id": "L01",
+      "source_pdf": "소프트웨어공학_Lecture_01.pdf",
+      "source_page": 5,
+      "question_type": "fill",
+      "difficulty": "medium",
+      "importance": "Important",
+      "emphasis_related": true,
+      "question_text": "교수님이 100% 출제를 언급한 소프트웨어공학의 3R은 역공학, 재공학, 그리고 무엇인가요?",
+      "options": [],
+      "correct_answer": "재사용",
+      "accepted_answers": [
+        "재사용",
+        "Reuse",
+        "소프트웨어 재사용"
+      ],
+      "explanation": "Lecture 01 5쪽의 3R은 Reverse Engineering·Reengineering·Reuse이며, 세 번째는 재사용이다.",
+      "wrong_option_explanations": {},
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L01",
+          "source_pdf": "소프트웨어공학_Lecture_01.pdf",
+          "source_page": 5
+        }
+      ],
+      "diagram": "",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L01-p005-01",
+        "a-L01-p005-02",
+        "a-L01-p005-03",
+        "a-L01-p005-04"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
+    },
+    {
+      "question_id": "q-prof-002",
+      "concept_id": "reengineering",
+      "lecture_id": "L01",
+      "source_pdf": "소프트웨어공학_Lecture_01.pdf",
+      "source_page": 9,
+      "question_type": "multi",
+      "difficulty": "hard",
+      "importance": "Critical",
+      "emphasis_related": true,
+      "question_text": "원본에 나온 재공학 4단계의 구성 요소를 모두 고르세요.",
+      "options": [
+        "분석",
+        "재구성",
+        "역공학",
+        "이관",
+        "가용성 산정"
+      ],
+      "correct_answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "accepted_answers": [],
+      "explanation": "Lecture 01 9쪽 재공학 과정은 분석→재구성→역공학→이관이다. 가용성 산정은 포함되지 않는다.",
+      "wrong_option_explanations": {
+        "4": "“가용성 산정”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 01 9쪽 재공학 과정은 분석→재구성→역공학→이관이다. 가용성 산정은 포함되지 않는다."
+      },
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L01",
+          "source_pdf": "소프트웨어공학_Lecture_01.pdf",
+          "source_page": 9
+        }
+      ],
+      "diagram": "",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L01-p009-01",
+        "a-L01-p009-02",
+        "a-L01-p009-03",
+        "a-L01-p009-04"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
+    },
+    {
+      "question_id": "q-prof-003",
+      "concept_id": "maintenance",
+      "lecture_id": "L01",
+      "source_pdf": "소프트웨어공학_Lecture_01.pdf",
+      "source_page": 18,
+      "question_type": "comparison",
+      "difficulty": "medium",
+      "importance": "Critical",
+      "emphasis_related": true,
+      "question_text": "교수님이 소프트웨어 개발 단계에서 가장 많은 비용이 소요된다고 강조한 활동은?",
+      "options": [
+        "유지보수",
+        "코딩만",
+        "요구사항 도출만",
+        "도식 작성만"
+      ],
+      "correct_answer": 0,
+      "accepted_answers": [],
+      "explanation": "Lecture 01 18쪽의 빨간 강조를 기반으로 한 비교다. 사용 후 수정·개선하는 유지보수가 해당한다.",
+      "wrong_option_explanations": {
+        "1": "“코딩만”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 01 18쪽의 빨간 강조를 기반으로 한 비교다. 사용 후 수정·개선하는 유지보수가 해당한다.",
+        "2": "“요구사항 도출만”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 01 18쪽의 빨간 강조를 기반으로 한 비교다. 사용 후 수정·개선하는 유지보수가 해당한다.",
+        "3": "“도식 작성만”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 01 18쪽의 빨간 강조를 기반으로 한 비교다. 사용 후 수정·개선하는 유지보수가 해당한다."
+      },
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L01",
+          "source_pdf": "소프트웨어공학_Lecture_01.pdf",
+          "source_page": 18
+        }
+      ],
+      "diagram": "",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L01-p018-01",
+        "a-L01-p018-02",
+        "a-L01-p018-03",
+        "a-L01-p018-04"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
+    },
+    {
+      "question_id": "q-prof-004",
+      "concept_id": "agile",
+      "lecture_id": "L01",
+      "source_pdf": "소프트웨어공학_Lecture_01.pdf",
+      "source_page": 30,
+      "question_type": "choice",
+      "difficulty": "medium",
+      "importance": "Critical",
+      "emphasis_related": true,
+      "question_text": "애자일 방법론의 핵심 특징으로 원본과 가장 일치하는 것은?",
+      "options": [
+        "짧은 주기로 반복 개발하며 변화에 신속히 대응한다",
+        "모든 문서를 먼저 고정한 뒤 변경을 금지한다",
+        "프로젝트 시작 후 고객과의 협업을 중단한다",
+        "사용할 모든 기능을 첫날 완성한다"
+      ],
+      "correct_answer": 0,
+      "accepted_answers": [],
+      "explanation": "Lecture 01 30쪽에서 빠른 변화 대응·반복 개발·고객과의 지속적 협력을 설명한다.",
+      "wrong_option_explanations": {
+        "1": "“모든 문서를 먼저 고정한 뒤 변경을 금지한다”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 01 30쪽에서 빠른 변화 대응·반복 개발·고객과의 지속적 협력을 설명한다.",
+        "2": "“프로젝트 시작 후 고객과의 협업을 중단한다”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 01 30쪽에서 빠른 변화 대응·반복 개발·고객과의 지속적 협력을 설명한다.",
+        "3": "“사용할 모든 기능을 첫날 완성한다”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 01 30쪽에서 빠른 변화 대응·반복 개발·고객과의 지속적 협력을 설명한다."
+      },
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L01",
+          "source_pdf": "소프트웨어공학_Lecture_01.pdf",
+          "source_page": 30
+        }
+      ],
+      "diagram": "",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L01-p030-01",
+        "a-L01-p030-02",
+        "a-L01-p030-03",
+        "a-L01-p030-04",
+        "a-L01-p030-05",
+        "a-L01-p030-06",
+        "a-L01-p030-07",
+        "a-L01-p030-08",
+        "a-L01-p030-09",
+        "a-L01-p030-10",
+        "a-L01-p030-11"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
+    },
+    {
+      "question_id": "q-prof-005",
+      "concept_id": "cocomo",
+      "lecture_id": "L03",
+      "source_pdf": "소프트웨어공학_Lecture_03.pdf",
+      "source_page": 10,
+      "question_type": "multi",
+      "difficulty": "medium",
+      "importance": "Important",
+      "emphasis_related": true,
+      "question_text": "COCOMO 개발 유형을 모두 고르세요.",
+      "options": [
+        "조직형(Organic)",
+        "반분리형(Semidetached)",
+        "내장형(Embedded)",
+        "기본형(Basic)",
+        "중간형(Intermediate)"
+      ],
+      "correct_answer": [
+        0,
+        1,
+        2
+      ],
+      "accepted_answers": [],
+      "explanation": "Lecture 03 10쪽 개발 유형은 조직형·반분리형·내장형이다. 기본형과 중간형은 11쪽 모델 정밀도의 분류이다.",
+      "wrong_option_explanations": {
+        "3": "“기본형(Basic)”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 03 10쪽 개발 유형은 조직형·반분리형·내장형이다. 기본형과 중간형은 11쪽 모델 정밀도의 분류이다.",
+        "4": "“중간형(Intermediate)”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 03 10쪽 개발 유형은 조직형·반분리형·내장형이다. 기본형과 중간형은 11쪽 모델 정밀도의 분류이다."
+      },
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L03",
+          "source_pdf": "소프트웨어공학_Lecture_03.pdf",
+          "source_page": 10
+        },
+        {
+          "lecture_id": "L03",
+          "source_pdf": "소프트웨어공학_Lecture_03.pdf",
+          "source_page": 11
+        }
+      ],
+      "diagram": "",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L03-p010-01",
+        "a-L03-p010-02",
+        "a-L03-p010-03",
+        "a-L03-p010-04",
+        "a-L03-p010-05",
+        "a-L03-p010-06",
+        "a-L03-p010-07",
+        "a-L03-p010-08"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
+    },
+    {
+      "question_id": "q-prof-006",
+      "concept_id": "cocomo",
+      "lecture_id": "L03",
+      "source_pdf": "소프트웨어공학_Lecture_03.pdf",
+      "source_page": 10,
+      "question_type": "comparison",
+      "difficulty": "hard",
+      "importance": "Important",
+      "emphasis_related": true,
+      "question_text": "COCOMO 강의자료의 유형별 예시 연결로 적절한 것은?",
+      "options": [
+        "일반 업무용 SW–조직형, DBMS–반분리형, 미사일 유도–내장형",
+        "일반 업무용 SW–내장형, DBMS–조직형, 미사일 유도–반분리형",
+        "모든 예시가 동일한 내장형",
+        "모든 예시가 비용의 정밀도 모델"
+      ],
+      "correct_answer": 0,
+      "accepted_answers": [],
+      "explanation": "Lecture 03 10쪽에 적힌 각 유형별 예시를 비교한다. 코드 줄 수의 정확한 경계는 원본에서 포함 범위 중복 가능성이 있으므로 이 문제에서는 묻지 않는다.",
+      "wrong_option_explanations": {
+        "1": "“일반 업무용 SW–내장형, DBMS–조직형, 미사일 유도–반분리형”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 03 10쪽에 적힌 각 유형별 예시를 비교한다. 코드 줄 수의 정확한 경계는 원본에서 포함 범위 중복 가능성이 있으므로 이 문제에서는 묻지 않는다.",
+        "2": "“모든 예시가 동일한 내장형”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 03 10쪽에 적힌 각 유형별 예시를 비교한다. 코드 줄 수의 정확한 경계는 원본에서 포함 범위 중복 가능성이 있으므로 이 문제에서는 묻지 않는다.",
+        "3": "“모든 예시가 비용의 정밀도 모델”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 03 10쪽에 적힌 각 유형별 예시를 비교한다. 코드 줄 수의 정확한 경계는 원본에서 포함 범위 중복 가능성이 있으므로 이 문제에서는 묻지 않는다."
+      },
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L03",
+          "source_pdf": "소프트웨어공학_Lecture_03.pdf",
+          "source_page": 10
+        }
+      ],
+      "diagram": "",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L03-p010-01",
+        "a-L03-p010-02",
+        "a-L03-p010-03",
+        "a-L03-p010-04",
+        "a-L03-p010-05",
+        "a-L03-p010-06",
+        "a-L03-p010-07",
+        "a-L03-p010-08"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
+    },
+    {
+      "question_id": "q-prof-007",
+      "concept_id": "diagram-types",
+      "lecture_id": "L09",
+      "source_pdf": "소프트웨어공학_Lecture_09.pdf",
+      "source_page": 2,
+      "question_type": "comparison",
+      "difficulty": "medium",
+      "importance": "Important",
+      "emphasis_related": true,
+      "question_text": "정적 구조를 표현하는 다이어그램과 시간에 따라 동작을 표현하는 다이어그램의 구분은?",
+      "options": [
+        "구조 다이어그램–행위 다이어그램",
+        "행위 다이어그램–구조 다이어그램",
+        "객체 다이어그램–배치 다이어그램",
+        "WBS–PERT"
+      ],
+      "correct_answer": 0,
+      "accepted_answers": [],
+      "explanation": "Lecture 09 2쪽은 구조=정적, 9쪽은 행위=동적 관점을 설명한다.",
+      "wrong_option_explanations": {
+        "1": "“행위 다이어그램–구조 다이어그램”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 09 2쪽은 구조=정적, 9쪽은 행위=동적 관점을 설명한다.",
+        "2": "“객체 다이어그램–배치 다이어그램”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 09 2쪽은 구조=정적, 9쪽은 행위=동적 관점을 설명한다.",
+        "3": "“WBS–PERT”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 09 2쪽은 구조=정적, 9쪽은 행위=동적 관점을 설명한다."
+      },
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L09",
+          "source_pdf": "소프트웨어공학_Lecture_09.pdf",
+          "source_page": 2
+        },
+        {
+          "lecture_id": "L09",
+          "source_pdf": "소프트웨어공학_Lecture_09.pdf",
+          "source_page": 9
+        }
+      ],
+      "diagram": "",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L09-p002-01",
+        "a-L09-p002-02",
+        "a-L09-p002-03",
+        "a-L09-p002-04",
+        "a-L09-p002-05",
+        "a-L09-p002-06",
+        "a-L09-p002-07"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
+    },
+    {
+      "question_id": "q-prof-008",
+      "concept_id": "state-diagram",
+      "lecture_id": "L09-extra",
+      "source_pdf": "소프트웨어공학_Lecture_09(추가).pdf",
+      "source_page": 40,
+      "question_type": "multi",
+      "difficulty": "hard",
+      "importance": "Important",
+      "emphasis_related": true,
+      "question_text": "상태 머신 다이어그램의 기본 표시 요소를 모두 고르세요.",
+      "options": [
+        "상태",
+        "전이",
+        "이벤트",
+        "시작·종료 표기",
+        "개발 비용 산정"
+      ],
+      "correct_answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "accepted_answers": [],
+      "explanation": "Lecture 09 추가 40쪽에서 상태, 전이 화살표, 이벤트, 시작·종료 노드를 구분한다.",
+      "wrong_option_explanations": {
+        "4": "“개발 비용 산정”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 09 추가 40쪽에서 상태, 전이 화살표, 이벤트, 시작·종료 노드를 구분한다."
+      },
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L09-extra",
+          "source_pdf": "소프트웨어공학_Lecture_09(추가).pdf",
+          "source_page": 40
+        }
+      ],
+      "diagram": "",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L09-extra-p040-01",
+        "a-L09-extra-p040-02",
+        "a-L09-extra-p040-03",
+        "a-L09-extra-p040-04",
+        "a-L09-extra-p040-05",
+        "a-L09-extra-p040-06",
+        "a-L09-extra-p040-07",
+        "a-L09-extra-p040-08",
+        "a-L09-extra-p040-09",
+        "a-L09-extra-p040-10",
+        "a-L09-extra-p040-11",
+        "a-L09-extra-p040-12",
+        "a-L09-extra-p040-13"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
+    },
+    {
+      "question_id": "q-prof-009",
+      "concept_id": "usecase-diagram",
+      "lecture_id": "L09",
+      "source_pdf": "소프트웨어공학_Lecture_09.pdf",
+      "source_page": 10,
+      "question_type": "comparison",
+      "difficulty": "medium",
+      "importance": "Important",
+      "emphasis_related": true,
+      "question_text": "유스케이스 다이어그램의 핵심 질문은 무엇인가요?",
+      "options": [
+        "누가 어떤 기능을 사용하는가",
+        "프로젝트 비용은 얼마인가",
+        "데이터가 어떤 서버의 디스크에 있는가",
+        "코드의 예외처리 순서는 무엇인가"
+      ],
+      "correct_answer": 0,
+      "accepted_answers": [],
+      "explanation": "Lecture 09 10쪽은 사용자(액터) 관점에서 누가 어떤 기능을 사용하는지 나타낸다.",
+      "wrong_option_explanations": {
+        "1": "“프로젝트 비용은 얼마인가”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 09 10쪽은 사용자(액터) 관점에서 누가 어떤 기능을 사용하는지 나타낸다.",
+        "2": "“데이터가 어떤 서버의 디스크에 있는가”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 09 10쪽은 사용자(액터) 관점에서 누가 어떤 기능을 사용하는지 나타낸다.",
+        "3": "“코드의 예외처리 순서는 무엇인가”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 09 10쪽은 사용자(액터) 관점에서 누가 어떤 기능을 사용하는지 나타낸다."
+      },
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L09",
+          "source_pdf": "소프트웨어공학_Lecture_09.pdf",
+          "source_page": 10
+        }
+      ],
+      "diagram": "",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L09-p010-01",
+        "a-L09-p010-02",
+        "a-L09-p010-03",
+        "a-L09-p010-04",
+        "a-L09-p010-05",
+        "a-L09-p010-06",
+        "a-L09-p010-07"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
+    },
+    {
+      "question_id": "q-prof-010",
+      "concept_id": "actors",
+      "lecture_id": "L09-extra",
+      "source_pdf": "소프트웨어공학_Lecture_09(추가).pdf",
+      "source_page": 26,
+      "question_type": "multi",
+      "difficulty": "hard",
+      "importance": "Standard",
+      "emphasis_related": true,
+      "question_text": "Lecture 09 추가 자료의 액터 종류에 대한 설명으로 맞는 것을 모두 고르세요.",
+      "options": [
+        "주요 액터는 실행을 능동적으로 요구한다",
+        "보조 액터는 요청을 받아 수동적으로 작업한다",
+        "시스템 액터는 개발 범위 밖의 연동 시스템일 수 있다",
+        "프록시 액터는 다른 사람의 ID를 무단 사용하는 사람이다"
+      ],
+      "correct_answer": [
+        0,
+        1,
+        2
+      ],
+      "accepted_answers": [],
+      "explanation": "Lecture 09 추가 26쪽의 주요·보조·시스템 액터 정의와 27쪽의 프록시 액터 접근 권한을 비교한다.",
+      "wrong_option_explanations": {
+        "3": "“프록시 액터는 다른 사람의 ID를 무단 사용하는 사람이다”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 09 추가 26쪽의 주요·보조·시스템 액터 정의와 27쪽의 프록시 액터 접근 권한을 비교한다."
+      },
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L09-extra",
+          "source_pdf": "소프트웨어공학_Lecture_09(추가).pdf",
+          "source_page": 26
+        },
+        {
+          "lecture_id": "L09-extra",
+          "source_pdf": "소프트웨어공학_Lecture_09(추가).pdf",
+          "source_page": 27
+        }
+      ],
+      "diagram": "",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L09-extra-p026-01",
+        "a-L09-extra-p026-02",
+        "a-L09-extra-p026-03",
+        "a-L09-extra-p026-04",
+        "a-L09-extra-p026-05",
+        "a-L09-extra-p026-06",
+        "a-L09-extra-p026-07",
+        "a-L09-extra-p026-08"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
+    },
+    {
+      "question_id": "q-prof-011",
+      "concept_id": "actors",
+      "lecture_id": "L09-extra",
+      "source_pdf": "소프트웨어공학_Lecture_09(추가).pdf",
+      "source_page": 27,
+      "question_type": "choice",
+      "difficulty": "hard",
+      "importance": "Standard",
+      "emphasis_related": true,
+      "question_text": "교수님이 예로 든 조교의 프록시 액터 조건은?",
+      "options": [
+        "조교 본인 계정에 적절한 등록 권한이 있는 경우",
+        "교수 ID로 몰래 로그인한 경우",
+        "유스케이스가 없더라도 자동으로 등록되는 경우",
+        "본인 계정이 없더라도 상관없는 경우"
+      ],
+      "correct_answer": 0,
+      "accepted_answers": [],
+      "explanation": "Lecture 09 추가 27쪽은 교수 ID 사용이 아니라 권한이 부여된 조교 본인 ID를 강조한다.",
+      "wrong_option_explanations": {
+        "1": "“교수 ID로 몰래 로그인한 경우”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 09 추가 27쪽은 교수 ID 사용이 아니라 권한이 부여된 조교 본인 ID를 강조한다.",
+        "2": "“유스케이스가 없더라도 자동으로 등록되는 경우”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 09 추가 27쪽은 교수 ID 사용이 아니라 권한이 부여된 조교 본인 ID를 강조한다.",
+        "3": "“본인 계정이 없더라도 상관없는 경우”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 09 추가 27쪽은 교수 ID 사용이 아니라 권한이 부여된 조교 본인 ID를 강조한다."
+      },
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L09-extra",
+          "source_pdf": "소프트웨어공학_Lecture_09(추가).pdf",
+          "source_page": 27
+        }
+      ],
+      "diagram": "",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L09-extra-p027-01",
+        "a-L09-extra-p027-02",
+        "a-L09-extra-p027-03",
+        "a-L09-extra-p027-04",
+        "a-L09-extra-p027-05"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
+    },
+    {
+      "question_id": "q-prof-012",
+      "concept_id": "include",
+      "lecture_id": "L09-extra",
+      "source_pdf": "소프트웨어공학_Lecture_09(추가).pdf",
+      "source_page": 31,
+      "question_type": "comparison",
+      "difficulty": "hard",
+      "importance": "Important",
+      "emphasis_related": true,
+      "question_text": "유스케이스의 <<include>> 관계 설명으로 맞는 것은?",
+      "options": [
+        "포함되는 기능을 반드시 수행하며 포함되는 쪽으로 점선 화살표가 향한다",
+        "특정 조건일 때만 확장 기능이 동작하며 기본 기능으로 실선 화살표가 향한다",
+        "다른 객체를 자식 클래스로 상속한다",
+        "전체가 사라지면 부분 객체가 반드시 사라진다"
+      ],
+      "correct_answer": 0,
+      "accepted_answers": [],
+      "explanation": "Lecture 09 추가 31쪽 include는 공통 필수 기능이며 점선 화살표가 포함 대상 유스케이스를 가리킨다.",
+      "wrong_option_explanations": {
+        "1": "“특정 조건일 때만 확장 기능이 동작하며 기본 기능으로 실선 화살표가 향한다”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 09 추가 31쪽 include는 공통 필수 기능이며 점선 화살표가 포함 대상 유스케이스를 가리킨다.",
+        "2": "“다른 객체를 자식 클래스로 상속한다”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 09 추가 31쪽 include는 공통 필수 기능이며 점선 화살표가 포함 대상 유스케이스를 가리킨다.",
+        "3": "“전체가 사라지면 부분 객체가 반드시 사라진다”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 09 추가 31쪽 include는 공통 필수 기능이며 점선 화살표가 포함 대상 유스케이스를 가리킨다."
+      },
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L09-extra",
+          "source_pdf": "소프트웨어공학_Lecture_09(추가).pdf",
+          "source_page": 31
+        }
+      ],
+      "diagram": "include",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L09-extra-p031-01",
+        "a-L09-extra-p031-02",
+        "a-L09-extra-p031-03",
+        "a-L09-extra-p031-04",
+        "a-L09-extra-p031-05",
+        "a-L09-extra-p031-06",
+        "a-L09-extra-p031-07",
+        "a-L09-extra-p031-08"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
+    },
+    {
+      "question_id": "q-prof-013",
+      "concept_id": "xp-values",
+      "lecture_id": "L10",
+      "source_pdf": "소프트웨어공학_Lecture_10.pdf",
+      "source_page": 8,
+      "question_type": "multi",
+      "difficulty": "hard",
+      "importance": "Important",
+      "emphasis_related": true,
+      "question_text": "XP의 5가지 핵심 가치를 모두 고르세요.",
+      "options": [
+        "용기",
+        "존중",
+        "의사소통",
+        "피드백",
+        "단순성",
+        "절차 고정"
+      ],
+      "correct_answer": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "accepted_answers": [],
+      "explanation": "Lecture 10 8쪽 XP의 다섯 핵심 가치는 용기, 존중, 의사소통, 피드백, 단순성이다.",
+      "wrong_option_explanations": {
+        "5": "“절차 고정”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 10 8쪽 XP의 다섯 핵심 가치는 용기, 존중, 의사소통, 피드백, 단순성이다."
+      },
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L10",
+          "source_pdf": "소프트웨어공학_Lecture_10.pdf",
+          "source_page": 8
+        }
+      ],
+      "diagram": "",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L10-p008-01",
+        "a-L10-p008-02",
+        "a-L10-p008-03",
+        "a-L10-p008-04",
+        "a-L10-p008-05"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
+    },
+    {
+      "question_id": "q-prof-014",
+      "concept_id": "xp-values",
+      "lecture_id": "L10",
+      "source_pdf": "소프트웨어공학_Lecture_10.pdf",
+      "source_page": 8,
+      "question_type": "comparison",
+      "difficulty": "medium",
+      "importance": "Important",
+      "emphasis_related": true,
+      "question_text": "XP 핵심 가치 중 불필요한 구조와 기능을 피하는 것은?",
+      "options": [
+        "단순성",
+        "용기",
+        "피드백",
+        "존중"
+      ],
+      "correct_answer": 0,
+      "accepted_answers": [],
+      "explanation": "Lecture 10 8쪽 단순성은 불필요한 기능·구조·알고리즘을 배제하는 것이다.",
+      "wrong_option_explanations": {
+        "1": "“용기”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 10 8쪽 단순성은 불필요한 기능·구조·알고리즘을 배제하는 것이다.",
+        "2": "“피드백”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 10 8쪽 단순성은 불필요한 기능·구조·알고리즘을 배제하는 것이다.",
+        "3": "“존중”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 10 8쪽 단순성은 불필요한 기능·구조·알고리즘을 배제하는 것이다."
+      },
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L10",
+          "source_pdf": "소프트웨어공학_Lecture_10.pdf",
+          "source_page": 8
+        }
+      ],
+      "diagram": "",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L10-p008-01",
+        "a-L10-p008-02",
+        "a-L10-p008-03",
+        "a-L10-p008-04",
+        "a-L10-p008-05"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
+    },
+    {
+      "question_id": "q-prof-015",
+      "concept_id": "scrum",
+      "lecture_id": "L10",
+      "source_pdf": "소프트웨어공학_Lecture_10.pdf",
+      "source_page": 10,
+      "question_type": "choice",
+      "difficulty": "medium",
+      "importance": "Important",
+      "emphasis_related": true,
+      "question_text": "스크럼의 반복 개발 주기에 대한 원본 설명으로 적절한 것은?",
+      "options": [
+        "최대 1개월 이내의 짧은 주기로 동작 결과물을 제시한다",
+        "반드시 3년 이상 같은 계획으로만 개발한다",
+        "작업을 시작하면 매일 진행 상황을 확인하지 않는다",
+        "각 주기에 결과물을 만들지 않는다"
+      ],
+      "correct_answer": 0,
+      "accepted_answers": [],
+      "explanation": "Lecture 10 10쪽은 반복 개발 주기와 실제 동작 결과의 제시를 강조한다.",
+      "wrong_option_explanations": {
+        "1": "“반드시 3년 이상 같은 계획으로만 개발한다”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 10 10쪽은 반복 개발 주기와 실제 동작 결과의 제시를 강조한다.",
+        "2": "“작업을 시작하면 매일 진행 상황을 확인하지 않는다”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 10 10쪽은 반복 개발 주기와 실제 동작 결과의 제시를 강조한다.",
+        "3": "“각 주기에 결과물을 만들지 않는다”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 10 10쪽은 반복 개발 주기와 실제 동작 결과의 제시를 강조한다."
+      },
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L10",
+          "source_pdf": "소프트웨어공학_Lecture_10.pdf",
+          "source_page": 10
+        }
+      ],
+      "diagram": "",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L10-p010-01",
+        "a-L10-p010-02",
+        "a-L10-p010-03",
+        "a-L10-p010-04",
+        "a-L10-p010-05",
+        "a-L10-p010-06"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
+    },
+    {
+      "question_id": "q-prof-016",
+      "concept_id": "scrum-roles",
+      "lecture_id": "L10",
+      "source_pdf": "소프트웨어공학_Lecture_10.pdf",
+      "source_page": 12,
+      "question_type": "comparison",
+      "difficulty": "hard",
+      "importance": "Important",
+      "emphasis_related": true,
+      "question_text": "Scrum 마스터의 역할을 가장 정확히 설명한 것은?",
+      "options": [
+        "팀의 자기조직화를 지원하고 방해 요소를 제거한다",
+        "모든 팀원의 작업을 강제로 할당하고 지시한다",
+        "제품의 코드를 혼자 독점한다",
+        "고객 요구를 항상 무시한다"
+      ],
+      "correct_answer": 0,
+      "accepted_answers": [],
+      "explanation": "Lecture 10 12쪽 Scrum 마스터는 자기조직화와 원칙 준수, 방해요인 제거를 지원한다.",
+      "wrong_option_explanations": {
+        "1": "“모든 팀원의 작업을 강제로 할당하고 지시한다”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 10 12쪽 Scrum 마스터는 자기조직화와 원칙 준수, 방해요인 제거를 지원한다.",
+        "2": "“제품의 코드를 혼자 독점한다”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 10 12쪽 Scrum 마스터는 자기조직화와 원칙 준수, 방해요인 제거를 지원한다.",
+        "3": "“고객 요구를 항상 무시한다”은(는) 원본의 정답 조건에 해당하지 않습니다. Lecture 10 12쪽 Scrum 마스터는 자기조직화와 원칙 준수, 방해요인 제거를 지원한다."
+      },
+      "verified": true,
+      "semantic_review": "source-summary-reviewed",
+      "professor_hint": true,
+      "verification_status": "pdf-crosschecked",
+      "sources": [
+        {
+          "lecture_id": "L10",
+          "source_pdf": "소프트웨어공학_Lecture_10.pdf",
+          "source_page": 12
+        }
+      ],
+      "diagram": "",
+      "retired": false,
+      "atomic_item_ids": [
+        "a-L10-p012-01",
+        "a-L10-p012-02",
+        "a-L10-p012-03",
+        "a-L10-p012-04",
+        "a-L10-p012-05",
+        "a-L10-p012-06",
+        "a-L10-p012-07",
+        "a-L10-p012-08",
+        "a-L10-p012-09",
+        "a-L10-p012-10",
+        "a-L10-p012-11",
+        "a-L10-p012-12",
+        "a-L10-p012-13"
+      ],
+      "emphasis_basis": "professor-spoken-hint"
     }
   ],
   "pages": [
@@ -20363,7 +21213,8 @@
       ],
       "question_ids": [
         "q-3r-2",
-        "q-3r-3"
+        "q-3r-3",
+        "q-prof-001"
       ],
       "has_red_heading": true
     },
@@ -20453,7 +21304,8 @@
       ],
       "question_ids": [
         "q-reengineering-2",
-        "q-v2-reengineering-1"
+        "q-v2-reengineering-1",
+        "q-prof-002"
       ],
       "has_red_heading": true
     },
@@ -20662,7 +21514,8 @@
       ],
       "question_ids": [
         "q-maintenance-2",
-        "q-maintenance-3"
+        "q-maintenance-3",
+        "q-prof-003"
       ],
       "has_red_heading": true
     },
@@ -20974,7 +21827,8 @@
         "a-L01-p030-11"
       ],
       "question_ids": [
-        "q-agile-2"
+        "q-agile-2",
+        "q-prof-004"
       ],
       "has_red_heading": true
     },
@@ -21491,7 +22345,10 @@
         "a-L03-p010-07",
         "a-L03-p010-08"
       ],
-      "question_ids": [],
+      "question_ids": [
+        "q-prof-005",
+        "q-prof-006"
+      ],
       "has_red_heading": true
     },
     {
@@ -23491,7 +24348,9 @@
         "a-L09-extra-p026-07",
         "a-L09-extra-p026-08"
       ],
-      "question_ids": [],
+      "question_ids": [
+        "q-prof-010"
+      ],
       "has_red_heading": false
     },
     {
@@ -23512,7 +24371,8 @@
         "a-L09-extra-p027-05"
       ],
       "question_ids": [
-        "q-v2-actors-1"
+        "q-v2-actors-1",
+        "q-prof-011"
       ],
       "has_red_heading": false
     },
@@ -23590,7 +24450,8 @@
         "a-L09-extra-p031-08"
       ],
       "question_ids": [
-        "q-include-2"
+        "q-include-2",
+        "q-prof-012"
       ],
       "has_red_heading": true
     },
@@ -23802,7 +24663,8 @@
         "a-L09-extra-p040-13"
       ],
       "question_ids": [
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ],
       "has_red_heading": false
     },
@@ -23854,7 +24716,8 @@
         "a-L09-p002-07"
       ],
       "question_ids": [
-        "q-v2-recall-diagram-types"
+        "q-v2-recall-diagram-types",
+        "q-prof-007"
       ],
       "has_red_heading": true
     },
@@ -24048,7 +24911,8 @@
         "a-L09-p010-07"
       ],
       "question_ids": [
-        "q-v2-recall-usecase-diagram"
+        "q-v2-recall-usecase-diagram",
+        "q-prof-009"
       ],
       "has_red_heading": true
     },
@@ -24400,7 +25264,9 @@
       ],
       "question_ids": [
         "q-xp-values-2",
-        "q-xp-values-3"
+        "q-xp-values-3",
+        "q-prof-013",
+        "q-prof-014"
       ],
       "has_red_heading": true
     },
@@ -24456,7 +25322,8 @@
       ],
       "question_ids": [
         "q-scrum-2",
-        "q-scrum-3"
+        "q-scrum-3",
+        "q-prof-015"
       ],
       "has_red_heading": true
     },
@@ -24520,7 +25387,8 @@
         "a-L10-p012-13"
       ],
       "question_ids": [
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ],
       "has_red_heading": true
     },
@@ -24951,7 +25819,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-3r-2",
-        "q-3r-3"
+        "q-3r-3",
+        "q-prof-001"
       ]
     },
     {
@@ -24973,7 +25842,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-3r-2",
-        "q-3r-3"
+        "q-3r-3",
+        "q-prof-001"
       ]
     },
     {
@@ -24995,7 +25865,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-3r-2",
-        "q-3r-3"
+        "q-3r-3",
+        "q-prof-001"
       ]
     },
     {
@@ -25017,7 +25888,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-3r-2",
-        "q-3r-3"
+        "q-3r-3",
+        "q-prof-001"
       ]
     },
     {
@@ -25396,7 +26268,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-reengineering-2",
-        "q-v2-reengineering-1"
+        "q-v2-reengineering-1",
+        "q-prof-002"
       ]
     },
     {
@@ -25418,7 +26291,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-reengineering-2",
-        "q-v2-reengineering-1"
+        "q-v2-reengineering-1",
+        "q-prof-002"
       ]
     },
     {
@@ -25440,7 +26314,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-reengineering-2",
-        "q-v2-reengineering-1"
+        "q-v2-reengineering-1",
+        "q-prof-002"
       ]
     },
     {
@@ -25462,7 +26337,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-reengineering-2",
-        "q-v2-reengineering-1"
+        "q-v2-reengineering-1",
+        "q-prof-002"
       ]
     },
     {
@@ -26445,7 +27321,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-maintenance-2",
-        "q-maintenance-3"
+        "q-maintenance-3",
+        "q-prof-003"
       ]
     },
     {
@@ -26467,7 +27344,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-maintenance-2",
-        "q-maintenance-3"
+        "q-maintenance-3",
+        "q-prof-003"
       ]
     },
     {
@@ -26489,7 +27367,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-maintenance-2",
-        "q-maintenance-3"
+        "q-maintenance-3",
+        "q-prof-003"
       ]
     },
     {
@@ -26511,7 +27390,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-maintenance-2",
-        "q-maintenance-3"
+        "q-maintenance-3",
+        "q-prof-003"
       ]
     },
     {
@@ -28332,7 +29212,8 @@
       "text": "절차 중심 방법론의 느린 변화 대응을 개선",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-agile-2"
+        "q-agile-2",
+        "q-prof-004"
       ]
     },
     {
@@ -28353,7 +29234,8 @@
       "text": "agile: 민첩한·기민한·재빠른",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-agile-2"
+        "q-agile-2",
+        "q-prof-004"
       ]
     },
     {
@@ -28374,7 +29256,8 @@
       "text": "변화에 빠르게 대응",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-agile-2"
+        "q-agile-2",
+        "q-prof-004"
       ]
     },
     {
@@ -28395,7 +29278,8 @@
       "text": "짧은 주기와 반복 개발",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-agile-2"
+        "q-agile-2",
+        "q-prof-004"
       ]
     },
     {
@@ -28416,7 +29300,8 @@
       "text": "고객과 지속 협력",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-agile-2"
+        "q-agile-2",
+        "q-prof-004"
       ]
     },
     {
@@ -28437,7 +29322,8 @@
       "text": "동작하는 소프트웨어를 빠르게 제공",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-agile-2"
+        "q-agile-2",
+        "q-prof-004"
       ]
     },
     {
@@ -28458,7 +29344,8 @@
       "text": "문서·절차보다 소통·실행 중시",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-agile-2"
+        "q-agile-2",
+        "q-prof-004"
       ]
     },
     {
@@ -28479,7 +29366,8 @@
       "text": "XP",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-agile-2"
+        "q-agile-2",
+        "q-prof-004"
       ]
     },
     {
@@ -28500,7 +29388,8 @@
       "text": "Scrum",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-agile-2"
+        "q-agile-2",
+        "q-prof-004"
       ]
     },
     {
@@ -28521,7 +29410,8 @@
       "text": "FDD",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-agile-2"
+        "q-agile-2",
+        "q-prof-004"
       ]
     },
     {
@@ -28542,7 +29432,8 @@
       "text": "Crystal",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-agile-2"
+        "q-agile-2",
+        "q-prof-004"
       ]
     },
     {
@@ -31118,7 +32009,10 @@
       ],
       "text": "조직형(Organic): 5만 라인 이하",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-005",
+        "q-prof-006"
+      ]
     },
     {
       "atomic_item_id": "a-L03-p010-02",
@@ -31137,7 +32031,10 @@
       ],
       "text": "조직형: 일반 업무용 SW",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-005",
+        "q-prof-006"
+      ]
     },
     {
       "atomic_item_id": "a-L03-p010-03",
@@ -31156,7 +32053,10 @@
       ],
       "text": "반분리형(Semidetached): 30만 라인 이하",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-005",
+        "q-prof-006"
+      ]
     },
     {
       "atomic_item_id": "a-L03-p010-04",
@@ -31175,7 +32075,10 @@
       ],
       "text": "반분리형: 운영체제·DBMS",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-005",
+        "q-prof-006"
+      ]
     },
     {
       "atomic_item_id": "a-L03-p010-05",
@@ -31194,7 +32097,10 @@
       ],
       "text": "내장형(Embedded): 30만 라인 이상",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-005",
+        "q-prof-006"
+      ]
     },
     {
       "atomic_item_id": "a-L03-p010-06",
@@ -31213,7 +32119,10 @@
       ],
       "text": "내장형: 미사일 유도·신호기 제어",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-005",
+        "q-prof-006"
+      ]
     },
     {
       "atomic_item_id": "a-L03-p010-07",
@@ -31232,7 +32141,10 @@
       ],
       "text": "규모와 복잡성에 따라 구분",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-005",
+        "q-prof-006"
+      ]
     },
     {
       "atomic_item_id": "a-L03-p010-08",
@@ -31251,7 +32163,10 @@
       ],
       "text": "경계 값의 포함 범위는 원본에서 겹침",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-005",
+        "q-prof-006"
+      ]
     },
     {
       "atomic_item_id": "a-L03-p011-01",
@@ -42326,7 +43241,9 @@
       ],
       "text": "시스템 액터: 범위 밖 연동 시스템",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-010"
+      ]
     },
     {
       "atomic_item_id": "a-L09-extra-p026-02",
@@ -42345,7 +43262,9 @@
       ],
       "text": "데이터 교환",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-010"
+      ]
     },
     {
       "atomic_item_id": "a-L09-extra-p026-03",
@@ -42364,7 +43283,9 @@
       ],
       "text": "원본 방향: 유스케이스→시스템 액터",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-010"
+      ]
     },
     {
       "atomic_item_id": "a-L09-extra-p026-04",
@@ -42383,7 +43304,9 @@
       ],
       "text": "원본 예: 조회→도서관리 시스템",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-010"
+      ]
     },
     {
       "atomic_item_id": "a-L09-extra-p026-05",
@@ -42402,7 +43325,9 @@
       ],
       "text": "주요 액터: 능동적으로 실행 요청",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-010"
+      ]
     },
     {
       "atomic_item_id": "a-L09-extra-p026-06",
@@ -42421,7 +43346,9 @@
       ],
       "text": "보조 액터: 요청·메시지를 받아 수동 수행",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-010"
+      ]
     },
     {
       "atomic_item_id": "a-L09-extra-p026-07",
@@ -42440,7 +43367,9 @@
       ],
       "text": "보조 액터 원본 예: 학사 시스템 유지보수 담당자",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-010"
+      ]
     },
     {
       "atomic_item_id": "a-L09-extra-p026-08",
@@ -42459,7 +43388,9 @@
       ],
       "text": "주요·보조는 시스템 동작 기준",
       "origin": "source-reconstruction",
-      "question_ids": []
+      "question_ids": [
+        "q-prof-010"
+      ]
     },
     {
       "atomic_item_id": "a-L09-extra-p027-01",
@@ -42479,7 +43410,8 @@
       "text": "액터·유스케이스 사이에서 대리",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-actors-1"
+        "q-v2-actors-1",
+        "q-prof-011"
       ]
     },
     {
@@ -42500,7 +43432,8 @@
       "text": "등록 접근 권한이 있어야 프록시",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-actors-1"
+        "q-v2-actors-1",
+        "q-prof-011"
       ]
     },
     {
@@ -42521,7 +43454,8 @@
       "text": "다른 사람 ID를 사용하는 뜻이 아님",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-actors-1"
+        "q-v2-actors-1",
+        "q-prof-011"
       ]
     },
     {
@@ -42542,7 +43476,8 @@
       "text": "원본 사례: 권한 있는 조교 본인 ID로 교수 대신 등록",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-actors-1"
+        "q-v2-actors-1",
+        "q-prof-011"
       ]
     },
     {
@@ -42563,7 +43498,8 @@
       "text": "그림: 교수→조교→교과목 등록",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-actors-1"
+        "q-v2-actors-1",
+        "q-prof-011"
       ]
     },
     {
@@ -42736,7 +43672,8 @@
       "text": "반드시 실행되는 포함 기능",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-include-2"
+        "q-include-2",
+        "q-prof-012"
       ]
     },
     {
@@ -42757,7 +43694,8 @@
       "text": "점선 화살표",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-include-2"
+        "q-include-2",
+        "q-prof-012"
       ]
     },
     {
@@ -42778,7 +43716,8 @@
       "text": "포함되는 쪽으로 향함",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-include-2"
+        "q-include-2",
+        "q-prof-012"
       ]
     },
     {
@@ -42799,7 +43738,8 @@
       "text": "<<include>> 표시",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-include-2"
+        "q-include-2",
+        "q-prof-012"
       ]
     },
     {
@@ -42820,7 +43760,8 @@
       "text": "상장수여자 등록→성적 조회",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-include-2"
+        "q-include-2",
+        "q-prof-012"
       ]
     },
     {
@@ -42841,7 +43782,8 @@
       "text": "학사경고자 등록→성적 조회",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-include-2"
+        "q-include-2",
+        "q-prof-012"
       ]
     },
     {
@@ -42862,7 +43804,8 @@
       "text": "장학생 등록→성적 조회",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-include-2"
+        "q-include-2",
+        "q-prof-012"
       ]
     },
     {
@@ -42883,7 +43826,8 @@
       "text": "원본 집합 비유: 세 등록 기능의 공통 영역이 성적 조회",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-include-2"
+        "q-include-2",
+        "q-prof-012"
       ]
     },
     {
@@ -43881,7 +44825,8 @@
       "text": "상태는 객체가 존재 가능한 조건",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ]
     },
     {
@@ -43902,7 +44847,8 @@
       "text": "존재 가능한 모든 상태 파악",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ]
     },
     {
@@ -43923,7 +44869,8 @@
       "text": "모서리 둥근 사각형",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ]
     },
     {
@@ -43944,7 +44891,8 @@
       "text": "전이: 상태 변화 화살표",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ]
     },
     {
@@ -43965,7 +44913,8 @@
       "text": "이벤트: 상태를 바꾸는 자극",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ]
     },
     {
@@ -43986,7 +44935,8 @@
       "text": "원본 이벤트: 전이 위 << >>",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ]
     },
     {
@@ -44007,7 +44957,8 @@
       "text": "시작: 채운 원",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ]
     },
     {
@@ -44028,7 +44979,8 @@
       "text": "종료: 이중 원",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ]
     },
     {
@@ -44049,7 +45001,8 @@
       "text": "원본 신청 상태: 가능→신청중→신청확인→신청완료",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ]
     },
     {
@@ -44070,7 +45023,8 @@
       "text": "수강신청 메뉴 선택",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ]
     },
     {
@@ -44091,7 +45045,8 @@
       "text": "수강과목 선택",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ]
     },
     {
@@ -44112,7 +45067,8 @@
       "text": "신청과목 화면 출력",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ]
     },
     {
@@ -44133,7 +45089,8 @@
       "text": "확인 버튼 클릭",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-state-diagram-1"
+        "q-v2-state-diagram-1",
+        "q-prof-008"
       ]
     },
     {
@@ -44160,7 +45117,8 @@
       "text": "정적인 구성요소·관계 표현",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-recall-diagram-types"
+        "q-v2-recall-diagram-types",
+        "q-prof-007"
       ]
     },
     {
@@ -44187,7 +45145,8 @@
       "text": "클래스: 클래스 구조·관계",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-recall-diagram-types"
+        "q-v2-recall-diagram-types",
+        "q-prof-007"
       ]
     },
     {
@@ -44214,7 +45173,8 @@
       "text": "객체: 인스턴스와 연결",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-recall-diagram-types"
+        "q-v2-recall-diagram-types",
+        "q-prof-007"
       ]
     },
     {
@@ -44241,7 +45201,8 @@
       "text": "컴포넌트: 기능 부품·관계",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-recall-diagram-types"
+        "q-v2-recall-diagram-types",
+        "q-prof-007"
       ]
     },
     {
@@ -44268,7 +45229,8 @@
       "text": "배치: 노드의 실행 배치",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-recall-diagram-types"
+        "q-v2-recall-diagram-types",
+        "q-prof-007"
       ]
     },
     {
@@ -44295,7 +45257,8 @@
       "text": "복합 구조: 클래스·컴포넌트 내부",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-recall-diagram-types"
+        "q-v2-recall-diagram-types",
+        "q-prof-007"
       ]
     },
     {
@@ -44322,7 +45285,8 @@
       "text": "패키지: 관련 요소의 묶음·관계",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-recall-diagram-types"
+        "q-v2-recall-diagram-types",
+        "q-prof-007"
       ]
     },
     {
@@ -45349,7 +46313,8 @@
       "text": "사용자 관점의 제공 기능",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-recall-usecase-diagram"
+        "q-v2-recall-usecase-diagram",
+        "q-prof-009"
       ]
     },
     {
@@ -45370,7 +46335,8 @@
       "text": "내부 처리보다 액터 기능",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-recall-usecase-diagram"
+        "q-v2-recall-usecase-diagram",
+        "q-prof-009"
       ]
     },
     {
@@ -45391,7 +46357,8 @@
       "text": "요구 분석에서 주요 기능 파악",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-recall-usecase-diagram"
+        "q-v2-recall-usecase-diagram",
+        "q-prof-009"
       ]
     },
     {
@@ -45412,7 +46379,8 @@
       "text": "누가 어떤 기능을 사용하는가",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-recall-usecase-diagram"
+        "q-v2-recall-usecase-diagram",
+        "q-prof-009"
       ]
     },
     {
@@ -45433,7 +46401,8 @@
       "text": "원본 예: 고객 로그인·상품 검색·주문",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-recall-usecase-diagram"
+        "q-v2-recall-usecase-diagram",
+        "q-prof-009"
       ]
     },
     {
@@ -45454,7 +46423,8 @@
       "text": "관리자 상품 등록",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-recall-usecase-diagram"
+        "q-v2-recall-usecase-diagram",
+        "q-prof-009"
       ]
     },
     {
@@ -45475,7 +46445,8 @@
       "text": "로그인 내부 처리 과정은 직접 보여주지 않음",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-recall-usecase-diagram"
+        "q-v2-recall-usecase-diagram",
+        "q-prof-009"
       ]
     },
     {
@@ -47419,7 +48390,9 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-xp-values-2",
-        "q-xp-values-3"
+        "q-xp-values-3",
+        "q-prof-013",
+        "q-prof-014"
       ]
     },
     {
@@ -47441,7 +48414,9 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-xp-values-2",
-        "q-xp-values-3"
+        "q-xp-values-3",
+        "q-prof-013",
+        "q-prof-014"
       ]
     },
     {
@@ -47463,7 +48438,9 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-xp-values-2",
-        "q-xp-values-3"
+        "q-xp-values-3",
+        "q-prof-013",
+        "q-prof-014"
       ]
     },
     {
@@ -47485,7 +48462,9 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-xp-values-2",
-        "q-xp-values-3"
+        "q-xp-values-3",
+        "q-prof-013",
+        "q-prof-014"
       ]
     },
     {
@@ -47507,7 +48486,9 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-xp-values-2",
-        "q-xp-values-3"
+        "q-xp-values-3",
+        "q-prof-013",
+        "q-prof-014"
       ]
     },
     {
@@ -47806,7 +48787,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-scrum-2",
-        "q-scrum-3"
+        "q-scrum-3",
+        "q-prof-015"
       ]
     },
     {
@@ -47829,7 +48811,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-scrum-2",
-        "q-scrum-3"
+        "q-scrum-3",
+        "q-prof-015"
       ]
     },
     {
@@ -47852,7 +48835,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-scrum-2",
-        "q-scrum-3"
+        "q-scrum-3",
+        "q-prof-015"
       ]
     },
     {
@@ -47875,7 +48859,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-scrum-2",
-        "q-scrum-3"
+        "q-scrum-3",
+        "q-prof-015"
       ]
     },
     {
@@ -47898,7 +48883,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-scrum-2",
-        "q-scrum-3"
+        "q-scrum-3",
+        "q-prof-015"
       ]
     },
     {
@@ -47921,7 +48907,8 @@
       "origin": "source-reconstruction",
       "question_ids": [
         "q-scrum-2",
-        "q-scrum-3"
+        "q-scrum-3",
+        "q-prof-015"
       ]
     },
     {
@@ -48195,7 +49182,8 @@
       "text": "제품 책임자: 기능 목록 작성",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ]
     },
     {
@@ -48217,7 +49205,8 @@
       "text": "제품 책임자: 비즈니스 우선순위·중요도·새 항목",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ]
     },
     {
@@ -48239,7 +49228,8 @@
       "text": "제품 책임자: 원본은 스프린트 시작 뒤 운영 불관여로 설명",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ]
     },
     {
@@ -48261,7 +49251,8 @@
       "text": "마스터: 제품 책임자 조력",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ]
     },
     {
@@ -48283,7 +49274,8 @@
       "text": "마스터: 일 배분·강요하지 않음",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ]
     },
     {
@@ -48305,7 +49297,8 @@
       "text": "마스터: 자기조직화 지원",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ]
     },
     {
@@ -48327,7 +49320,8 @@
       "text": "마스터: 원칙·가치 준수 지원",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ]
     },
     {
@@ -48349,7 +49343,8 @@
       "text": "마스터: 방해 요소 제거",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ]
     },
     {
@@ -48371,7 +49366,8 @@
       "text": "팀: 원본 보통5–9명",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ]
     },
     {
@@ -48393,7 +49389,8 @@
       "text": "팀: 사용자 스토리 도출·구현",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ]
     },
     {
@@ -48415,7 +49412,8 @@
       "text": "팀: 작업 분해·일정·속도 추정",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ]
     },
     {
@@ -48437,7 +49435,8 @@
       "text": "팀: 결과를 책임자에게 시연",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ]
     },
     {
@@ -48459,7 +49458,8 @@
       "text": "팀: 매일 진행 점검",
       "origin": "source-reconstruction",
       "question_ids": [
-        "q-v2-scrum-roles-1"
+        "q-v2-scrum-roles-1",
+        "q-prof-016"
       ]
     },
     {
