@@ -1,0 +1,20 @@
+import {useState} from 'react';
+import {Link} from 'react-router-dom';
+import type {Question,Answer,Source} from './types';
+import {grade,answered,recordAnswer} from './core';
+import {useStore} from './store';
+import {Diagram} from './Diagrams';
+export const typeNames={choice:'객관식',ox:'OX',fill:'빈칸',short:'단답형',multi:'다중 선택',comparison:'개념 비교',calculation:'계산형',uml:'UML 판별'};
+export const difficultyNames={easy:'쉬움',medium:'보통',hard:'어려움'};
+export function SourceLink({source}:{source:Source}){const {pdfs}=useStore();return <div className="source"><span>{source.source_pdf} · PDF {source.source_page}p</span>{pdfs[source.source_pdf]?<a href={`${pdfs[source.source_pdf]}#page=${source.source_page}`} target="_blank" rel="noreferrer">원본 보기 ↗</a>:<Link to="/settings">내 PDF 연결</Link>}</div>}
+export function optionOrder(q:Question,seed:string){
+ let hash=2166136261;for(const c of seed+q.question_id){hash^=c.charCodeAt(0);hash=Math.imul(hash,16777619)}
+ const ids=q.options.map((_,i)=>i);for(let i=ids.length-1;i>0;i--){hash=(Math.imul(hash,1664525)+1013904223)>>>0;const j=hash%(i+1);[ids[i],ids[j]]=[ids[j],ids[i]]}return ids;
+}
+export function AnswerInput({q,value,onChange,disabled=false,order}:{q:Question;value?:Answer;onChange:(a:Answer)=>void;disabled?:boolean;order?:number[]}){
+ if(!q.options.length)return <label className="answer-field">답안 <input disabled={disabled} value={typeof value==='string'?value:''} onChange={e=>onChange(e.target.value)} placeholder={q.question_type==='calculation'?'숫자 입력 (문제의 단위 기준)':'답을 입력하세요'} autoComplete="off"/></label>;
+ return <div className="options">{(order??q.options.map((_,i)=>i)).map((i,position)=>{const o=q.options[i];const selected=Array.isArray(value)?value.includes(i):value===i;return <button type="button" key={i} disabled={disabled} className={`option ${selected?'selected':''}`} aria-pressed={selected} onClick={()=>onChange(q.question_type==='multi'?(selected?(value as number[]).filter(x=>x!==i):[...(Array.isArray(value)?value:[]),i]):i)}><span className="option-index">{q.question_type==='multi'?(selected?'✓':'□'):position+1}</span><span>{o}</span></button>})}{q.question_type==='multi'&&<small>정답에 해당하는 선택지를 모두 선택하세요.</small>}</div>
+}
+export function answerLabel(q:Question,a:Answer|undefined){if(!answered(a))return '미응답';if(Array.isArray(a))return a.map(i=>q.options[i]).join(', ');return typeof a==='number'?q.options[a]:a}
+export function Explanation({q,value}:{q:Question;value?:Answer}){return <div className={`explanation ${grade(q,value)?'correct':'incorrect'}`}><strong>{grade(q,value)?'정답입니다':'다시 살펴보세요'}</strong><p>정답: {answerLabel(q,q.correct_answer)}</p><p>{q.explanation}</p>{typeof value==='number'&&!grade(q,value)&&<p>{q.wrong_option_explanations[value]}</p>}<Link to={`/classroom/${q.lecture_id}/${q.source_page}?concept=${q.concept_id}`}>관련 강의 복습 →</Link><SourceLink source={q}/></div>}
+export function Practice({q}:{q:Question}){const {update}=useStore();const [value,setValue]=useState<Answer>();const [checked,setChecked]=useState(false);return <article className="card practice"><div className="tags"><span>{typeNames[q.question_type]}</span><span>{difficultyNames[q.difficulty]}</span><span className={q.importance.toLowerCase()}>{q.importance}</span></div><h3 className="question-text">{q.question_text}</h3>{q.diagram&&<Diagram kind={q.diagram}/>}<AnswerInput q={q} value={value} onChange={setValue} disabled={checked}/>{checked?<><Explanation q={q} value={value}/><button className="btn" onClick={()=>{setChecked(false);setValue(undefined)}}>다시 풀기</button></>:<button className="btn primary" disabled={!answered(value)} onClick={()=>{setChecked(true);update(s=>recordAnswer(s,q,value!))}}>답 확인하기</button>}</article>}

@@ -1,0 +1,20 @@
+{
+  "name": "softwareengineering-cbt",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "audit": "node scripts/audit.mjs",
+    "pdf:analyze": "python scripts/analyze_pdfs.py",
+    "content:build": "python scripts/build_content.py",
+    "data:update": "python scripts/update_data.py"
+  },
+  "dependencies": {"react":"19.2.0","react-dom":"19.2.0","react-router-dom":"7.9.4","lucide-react":"0.468.0"},
+  "devDependencies": {"@types/react":"19.2.2","@types/react-dom":"19.2.2","@types/node":"22.18.6","@vitejs/plugin-react":"5.0.4","vite":"7.1.9","typescript":"5.9.3","vitest":"3.2.4","@playwright/test":"1.56.0"}
+}
