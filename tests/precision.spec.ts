@@ -20,6 +20,9 @@ test('real keyword inputs show incorrect word, persist attempts and card schedul
  await page.getByRole('button',{name:'입력 답안 채점'}).click();await expect(page.locator('.keyword-results .incorrect')).toContainText('틀린 개념');
  await expect(page.locator('.keyword-results')).toContainText(`${card.answer_groups.length-1}/${card.answer_groups.length}개 키워드 정답`);
  await page.reload();const state=await page.evaluate(()=>JSON.parse(localStorage.getItem('jihwanlee-se-cbt-v1')!));expect(state.memoryAttempts).toHaveLength(1);expect(state.cardReviews[card.card_id].unknown).toBe(true);
+ for(let i=0;i<card.answer_groups.length;i++)await page.getByRole('textbox',{name:`빈칸 ${i+1}`,exact:true}).fill(card.answer_groups[i][0]);
+ await page.getByRole('button',{name:'입력 답안 채점'}).click();await page.getByRole('button',{name:'기억했어요'}).click();
+ const after=await page.evaluate(()=>JSON.parse(localStorage.getItem('jihwanlee-se-cbt-v1')!));expect(after.cardReviews[card.card_id].reviews).toBe(2);expect(after.cardReviews[card.card_id].step).toBe(0);
 });
 test('v1 active exam with retired question and past results restores without losing records',async({page})=>{
  await page.goto('');
