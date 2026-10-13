@@ -1,4 +1,8 @@
 node_modules/
+output/
+scripts/refine_v2.py
+__pycache__/
+*.pyc
 dist/
 .tools/
 source_pdfs/

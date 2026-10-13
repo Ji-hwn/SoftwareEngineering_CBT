@@ -13,10 +13,11 @@ for t in reversed(list(tasks)):
     lf[t]=min([ls[k] for k in successors],default=project);ls[t]=lf[t]-tasks[t][0]
 expected={('loc-estimate',2):(600+4*900+1200)/6,('mm',2):5*12+7*5,('mm',3):12000/600,('development-cost',2):100*300,('duration',2):(50000/500)/10,('duration',3):24/6,('productivity',2):50000/100,('pert',2):(2+4*5+8)/6,('cpm-example',2):project,('cpm-example',3):es['D'],('cpm-example',4):ls['D'],('cpm-example',5):ls['D']-es['D']}
 checks=[]
+new_expected={'q-v2-mm-1':50000/500,'q-v2-cpm-example-2':es['C'],'q-v2-cpm-example-3':es['E']}
 for q in data['questions']:
     if q['question_type']!='calculation':continue
-    qid=q['question_id'];key=(q['concept_id'],int(qid.split('-')[-1]));result=expected[key];answer=float(q['correct_answer'])
-    checks.append({'question_id':qid,'computed':result,'answer':answer,'passed':abs(result-answer)<1e-9})
+    qid=q['question_id'];key=(q['concept_id'],int(qid.split('-')[-1]));result=new_expected[qid] if qid.startswith('q-v2-') else expected[key];answer=float(q['correct_answer'])
+    checks.append({'question_id':qid,'computed':result,'answer':answer,'passed':abs(result-answer)<1e-9,'legacy_only':q.get('retired',False)})
 report={'all_passed':all(c['passed'] for c in checks),'checks':checks,'CPM':{'project_duration':project,'ES':es,'EF':ef,'LS':ls,'LF':lf,'slack':{t:ls[t]-es[t] for t in tasks},'critical_path':[t for t in tasks if ls[t]==es[t]]}}
 (ROOT/'analysis').mkdir(parents=True,exist_ok=True)
 (ROOT/'analysis/calculation-validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')

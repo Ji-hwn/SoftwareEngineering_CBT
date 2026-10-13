@@ -5,6 +5,7 @@ import {KEY,loadState,finishExam,remaining} from './core';
 export const course=raw as unknown as Course;
 export const conceptMap=Object.fromEntries(course.concepts.map(c=>[c.concept_id,c]));
 export const questionMap=Object.fromEntries(course.questions.map(q=>[q.question_id,q]));
+export const atomicMap=Object.fromEntries(course.atomic_items.map(a=>[a.atomic_item_id,a]));
 export type Setter=(fn:(s:StudyState)=>StudyState)=>void;
 const Ctx=createContext<{state:StudyState;update:Setter;pdfs:Record<string,string>;setPdfs:(v:Record<string,string>)=>void;notice:string;setNotice:(v:string)=>void}|null>(null);
 export function Store({children}:{children:ReactNode}){

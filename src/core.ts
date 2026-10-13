@@ -1,9 +1,16 @@
 import type {Answer,Question,StudyState,ExamSettings,Exam} from './types';
 export const KEY='jihwanlee-se-cbt-v1';
-export const emptyState=():StudyState=>({version:1,completed:[],bookmarks:[],reviews:{},attempts:[],wrong:{},notes:{},history:[],active:null,settings:{theme:'light',font:17,criticalRatio:70,profile:'jihwanlee'},exposure:{}});
+export const emptyState=():StudyState=>({version:1,content_revision:2,completed:[],completedPages:[],bookmarks:[],reviews:{},cardReviews:{},memoryAttempts:[],attempts:[],wrong:{},notes:{},history:[],active:null,settings:{theme:'light',font:17,criticalRatio:70,profile:'jihwanlee'},exposure:{}});
 export const normalize=(s:string)=>s.normalize('NFKC').toLocaleLowerCase().replace(/\s+/g,'').trim();
 export function grade(q:Question,a:Answer|undefined|null){
   if(a===undefined||a===null||a==='')return false;
+  if(q.answer_groups){
+    if(typeof a!=='string')return false;
+    const parts=a.split(/[;；\n]/).map(normalize);if(parts.length!==q.answer_groups.length)return false;
+    if(q.answer_ordered)return q.answer_groups.every((g,i)=>g.some(v=>normalize(v)===parts[i]));
+    const match=(i:number,available:string[]):boolean=>i===q.answer_groups!.length||available.some((part,j)=>q.answer_groups![i].some(v=>normalize(v)===part)&&match(i+1,available.filter((_,k)=>k!==j)));
+    return match(0,parts);
+  }
   if(q.question_type==='multi')return Array.isArray(a)&&Array.isArray(q.correct_answer)&&a.length===q.correct_answer.length&&[...a].sort((x,y)=>x-y).every((x,i)=>x===[...(q.correct_answer as number[])].sort((x,y)=>x-y)[i]);
   if(typeof q.correct_answer==='number')return typeof a==='number'&&q.correct_answer===a;
   if(q.question_type==='calculation'&&typeof a==='string'){
@@ -21,7 +28,12 @@ export function restore(raw:unknown):StudyState {
   if(!Object.values(d.notes).every(x=>typeof x==='string')||!Object.values(d.wrong).every(x=>record(x)&&Number.isFinite(x.count)&&x.count>=0&&Number.isFinite(x.last))||!Object.values(d.reviews).every(x=>record(x)&&Number.isFinite(x.due)&&Number.isInteger(x.step)&&typeof x.unknown==='boolean'&&Number.isFinite(x.reviews))||!Object.values(d.exposure).every(x=>Number.isFinite(x)&&x>=0)||!d.attempts.every(x=>record(x)&&typeof x.question_id==='string'&&typeof x.concept_id==='string'&&typeof x.correct==='boolean'&&Number.isFinite(x.at)))throw Error('백업 학습 기록이 손상되었습니다.');
   const validExam=(x:Exam)=>record(x)&&typeof x.id==='string'&&arrayStrings(x.question_ids)&&record(x.answers)&&arrayStrings(x.flags)&&Number.isFinite(x.started)&&Number.isFinite(x.deadline)&&record(x.settings)&&arrayStrings(x.settings.lectures)&&Number.isFinite(x.settings.count)&&Number.isFinite(x.settings.minutes);
   if(!d.history.every(x=>validExam(x)&&Number.isFinite(x.submitted))||(d.active!==null&&!validExam(d.active)))throw Error('백업 시험 기록이 손상되었습니다.');
-  return structuredClone(d);
+  // Additive migration: keep the v1 storage key, IDs, answer indexes and absolute exam deadline.
+  if(d.completedPages!==undefined&&!arrayStrings(d.completedPages))throw Error('페이지 진도 형식을 확인하세요.');
+  if(d.cardReviews!==undefined&&(!record(d.cardReviews)||!Object.values(d.cardReviews).every(x=>record(x)&&Number.isFinite(x.due)&&Number.isInteger(x.step)&&typeof x.unknown==='boolean'&&Number.isFinite(x.reviews))))throw Error('암기 일정 형식을 확인하세요.');
+  if(d.memoryAttempts!==undefined&&(!Array.isArray(d.memoryAttempts)||!d.memoryAttempts.every(x=>record(x)&&typeof x.card_id==='string'&&arrayStrings(x.answers)&&Array.isArray(x.correct)&&x.correct.every(v=>typeof v==='boolean')&&Number.isFinite(x.at))))throw Error('암기 답안 형식을 확인하세요.');
+  for(const e of [...d.history,...(d.active?[d.active]:[])])if(e.snapshots!==undefined&&(!record(e.snapshots)||!e.question_ids.every(id=>{const q=e.snapshots?.[id];return q&&q.question_id===id&&typeof q.question_text==='string'&&Array.isArray(q.options)&&Array.isArray(q.accepted_answers)&&typeof q.explanation==='string'&&typeof q.question_type==='string'})))throw Error('시험 문항 보관본이 손상되었습니다.');
+  return structuredClone({...d,content_revision:2,completedPages:d.completedPages??[],cardReviews:d.cardReviews??{},memoryAttempts:d.memoryAttempts??[]});
 }
 export function loadState(){try{const raw=localStorage.getItem(KEY);return raw?restore(JSON.parse(raw)):emptyState()}catch{return emptyState()}}
 export function recordAnswer(state:StudyState,q:Question,answer:Answer|null,exam_id?:string,now=Date.now()):StudyState {
@@ -37,7 +49,7 @@ export function reviewConcept(state:StudyState,id:string,known:boolean,now=Date.
 }
 export function remaining(exam:Exam,now=Date.now()){return Math.max(0,Math.ceil((exam.deadline-now)/1000))}
 export function selectQuestions(all:Question[],settings:ExamSettings,state:StudyState,rng=Math.random){
-  const pool=all.filter(q=>q.verified&&(!settings.lectures.length||settings.lectures.includes(q.lecture_id))&&settings.types.includes(q.question_type)&&(!settings.wrongOnly||!!state.wrong[q.question_id]));
+  const pool=all.filter(q=>q.verified&&!q.retired&&(!settings.lectures.length||settings.lectures.includes(q.lecture_id))&&settings.types.includes(q.question_type)&&(!settings.wrongOnly||!!state.wrong[q.question_id]));
   const count=Math.min(settings.count,pool.length);const target=Math.round(count*settings.criticalRatio/100);
   const crit=pool.filter(q=>q.emphasis_related);const normal=pool.filter(q=>!q.emphasis_related);
   const criticalTarget=Math.min(crit.length,Math.max(target,count-normal.length));
@@ -57,11 +69,22 @@ export function selectQuestions(all:Question[],settings:ExamSettings,state:Study
     if(!best)break;
     selected.push(best);used.add(best.question_id);cc+=best.emphasis_related?1:0;diffCount[best.difficulty]++;lectureCount[best.lecture_id]=(lectureCount[best.lecture_id]??0)+1;conceptCount[best.concept_id]=(conceptCount[best.concept_id]??0)+1;
   }
-  return {questions:selected,requested:settings.count,actualCritical:cc,notice:count<settings.count?`조건에 맞는 검증 문항이 ${count}개입니다. 중복 없이 ${count}문항으로 시작합니다.`:criticalTarget!==target?'선택 범위의 문항 부족으로 강조 비율을 가능한 범위로 조정했습니다.':''};
+  const notices=[];
+  if(count<settings.count)notices.push(`조건에 맞는 검증 문항이 ${count}개입니다. 중복 없이 ${count}문항으로 시작합니다.`);
+  if(criticalTarget!==target)notices.push(`강조 ${crit.length}개·일반 ${normal.length}개 후보로 목표 강조 ${target}문항을 충족할 수 없어 ${criticalTarget}문항으로 조정했습니다.`);
+  const goal={easy:Math.floor(quotas.easy),medium:Math.floor(quotas.medium),hard:Math.floor(quotas.hard)};
+  let left=count-goal.easy-goal.medium-goal.hard;for(const k of [...(['easy','medium','hard'] as const)].sort((a,b)=>(quotas[b]-goal[b])-(quotas[a]-goal[a])))if(left-->0)goal[k]++;
+  if((['easy','medium','hard'] as const).some(k=>diffCount[k]!==goal[k]))notices.push(`강조 비율·단원 균형·후보 난이도를 함께 적용한 실제 난이도는 쉬움 ${diffCount.easy}, 보통 ${diffCount.medium}, 어려움 ${diffCount.hard}문항입니다. 목표 ${goal.easy}/${goal.medium}/${goal.hard}와 차이가 있습니다.`);
+  return {questions:selected,requested:settings.count,actualCritical:cc,notice:notices.join(' ')};
 }
 export function finishExam(state:StudyState,questions:Question[],now=Date.now()){
   if(!state.active)return state;const e=structuredClone(state.active);if(state.history.some(h=>h.id===e.id))return {...state,active:null};
   let s=structuredClone(state);let correct=0;let unanswered=0;
-  for(const id of e.question_ids){const q=questions.find(q=>q.question_id===id);if(!q)continue;const a=e.answers[id];if(!answered(a))unanswered++;if(grade(q,a))correct++;s=recordAnswer(s,q,answered(a)?a:null,e.id,now)}
+  for(const id of e.question_ids){const q=e.snapshots?.[id]??questions.find(q=>q.question_id===id);if(!q){unanswered++;continue}const a=e.answers[id];if(!answered(a))unanswered++;if(grade(q,a))correct++;s=recordAnswer(s,q,answered(a)?a:null,e.id,now)}
   e.submitted=Math.min(now,e.deadline);e.correct=correct;e.unanswered=unanswered;e.score=Math.round(correct/e.question_ids.length*100);s.history.unshift(e);s.active=null;return s;
+}
+export function gradeKeywords(groups:string[][],answers:string[]){return groups.map((aliases,i)=>aliases.some(term=>normalize(term)===normalize(answers[i]??'')))}
+export function reviewCard(state:StudyState,id:string,known:boolean,now=Date.now()){
+  const prev=state.cardReviews[id];const step=known?Math.min((prev?.unknown?-1:prev?.step??-1)+1,2):0;
+  return {...state,cardReviews:{...state.cardReviews,[id]:{due:now+(known?[1,3,7][step]*86400000:0),step,unknown:!known,reviews:(prev?.reviews??0)+1}}};
 }

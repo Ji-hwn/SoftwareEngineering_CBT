@@ -10,7 +10,7 @@
     "preview": "vite preview --host 127.0.0.1",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "audit": "node scripts/audit.mjs",
+    "audit": "node scripts/audit.mjs && node scripts/precision_audit.mjs",
     "pdf:analyze": "python scripts/analyze_pdfs.py",
     "content:build": "python scripts/build_content.py",
     "data:update": "python scripts/update_data.py"
