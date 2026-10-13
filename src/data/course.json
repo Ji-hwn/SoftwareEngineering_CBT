@@ -25649,7 +25649,7 @@
       "page_title": "재사용 방법의 비교",
       "original_topic": "합성 중심의 빠른 개발",
       "item_type": "list-item",
-      "emphasis_level": "Critical",
+      "emphasis_level": "Important",
       "content_reference": "/classroom/L01/12#a-L01-p012-02",
       "verification_status": "source-summary-reviewed",
       "concept_ids": [
@@ -25699,7 +25699,7 @@
       "page_title": "재사용 방법의 비교",
       "original_topic": "합성 중심의 유지보수 용이성",
       "item_type": "list-item",
-      "emphasis_level": "Critical",
+      "emphasis_level": "Important",
       "content_reference": "/classroom/L01/12#a-L01-p012-04",
       "verification_status": "source-summary-reviewed",
       "concept_ids": [
@@ -25749,7 +25749,7 @@
       "page_title": "재사용 방법의 비교",
       "original_topic": "생성 중심은 자동화 도구·코드 생성기 활용",
       "item_type": "list-item",
-      "emphasis_level": "Critical",
+      "emphasis_level": "Important",
       "content_reference": "/classroom/L01/12#a-L01-p012-06",
       "verification_status": "source-summary-reviewed",
       "concept_ids": [
@@ -26549,7 +26549,7 @@
       "page_title": "수정 보수와 적응 보수",
       "original_topic": "수정 보수의 별칭: 수리·정정·하자 보수",
       "item_type": "table-row",
-      "emphasis_level": "Critical",
+      "emphasis_level": "Important",
       "content_reference": "/classroom/L01/19#a-L01-p019-02",
       "verification_status": "source-summary-reviewed",
       "concept_ids": [
@@ -26601,7 +26601,7 @@
       "page_title": "수정 보수와 적응 보수",
       "original_topic": "적응 보수: 하드웨어 등 환경 변화에 대응",
       "item_type": "table-row",
-      "emphasis_level": "Critical",
+      "emphasis_level": "Important",
       "content_reference": "/classroom/L01/19#a-L01-p019-04",
       "verification_status": "source-summary-reviewed",
       "concept_ids": [
@@ -26625,15 +26625,15 @@
       "source_page": 20,
       "pdf_page": 20,
       "page_title": "향상 보수의 특징",
-      "original_topic": "새로운 기능 추가",
-      "item_type": "list-item",
-      "emphasis_level": "Important",
+      "original_topic": "향상 보수(Perfective Maintenance): 새로운 기능 추가",
+      "item_type": "table-row",
+      "emphasis_level": "Critical",
       "content_reference": "/classroom/L01/20#a-L01-p020-01",
       "verification_status": "source-summary-reviewed",
       "concept_ids": [
         "perfective"
       ],
-      "text": "새로운 기능 추가",
+      "text": "향상 보수(Perfective Maintenance): 새로운 기능 추가",
       "origin": "source-reconstruction",
       "question_ids": [
         "q-perfective-2",
@@ -26717,15 +26717,15 @@
       "source_page": 21,
       "pdf_page": 21,
       "page_title": "예방 보수의 특징",
-      "original_topic": "미래 유지보수성·신뢰성을 위한 선제적 유지보수",
-      "item_type": "list-item",
-      "emphasis_level": "Important",
+      "original_topic": "예방 보수(Preventive Maintenance): 미래 유지보수성·신뢰성을 위한 선제적 유지보수",
+      "item_type": "table-row",
+      "emphasis_level": "Critical",
       "content_reference": "/classroom/L01/21#a-L01-p021-01",
       "verification_status": "source-summary-reviewed",
       "concept_ids": [
         "preventive"
       ],
-      "text": "미래 유지보수성·신뢰성을 위한 선제적 유지보수",
+      "text": "예방 보수(Preventive Maintenance): 미래 유지보수성·신뢰성을 위한 선제적 유지보수",
       "origin": "source-reconstruction",
       "question_ids": [
         "q-preventive-2",
@@ -26765,7 +26765,7 @@
       "page_title": "예방 보수의 특징",
       "original_topic": "예방 수단을 마련",
       "item_type": "list-item",
-      "emphasis_level": "Critical",
+      "emphasis_level": "Important",
       "content_reference": "/classroom/L01/21#a-L01-p021-03",
       "verification_status": "source-summary-reviewed",
       "concept_ids": [
@@ -28642,7 +28642,7 @@
       "page_title": "애자일 선언문의 가치 비교",
       "original_topic": "왼쪽 가치도 인정하되 오른쪽 가치를 더 중시",
       "item_type": "list-item",
-      "emphasis_level": "Critical",
+      "emphasis_level": "Important",
       "content_reference": "/classroom/L01/31#a-L01-p031-05",
       "verification_status": "source-summary-reviewed",
       "concept_ids": [
@@ -29897,7 +29897,7 @@
       "page_title": "V 모형의 검증 대응",
       "original_topic": "요구 분석 ↔ 시스템 테스트: 요구사항 검증",
       "item_type": "table-row",
-      "emphasis_level": "Critical",
+      "emphasis_level": "Important",
       "content_reference": "/classroom/L01/41#a-L01-p041-03",
       "verification_status": "source-summary-reviewed",
       "concept_ids": [
@@ -29920,7 +29920,7 @@
       "page_title": "V 모형의 검증 대응",
       "original_topic": "아키텍처 설계 ↔ 통합 테스트: 인터페이스 검증",
       "item_type": "table-row",
-      "emphasis_level": "Critical",
+      "emphasis_level": "Important",
       "content_reference": "/classroom/L01/41#a-L01-p041-04",
       "verification_status": "source-summary-reviewed",
       "concept_ids": [
@@ -29943,7 +29943,7 @@
       "page_title": "V 모형의 검증 대응",
       "original_topic": "모듈 설계 ↔ 단위 테스트: 모듈 검증",
       "item_type": "table-row",
-      "emphasis_level": "Critical",
+      "emphasis_level": "Important",
       "content_reference": "/classroom/L01/41#a-L01-p041-05",
       "verification_status": "source-summary-reviewed",
       "concept_ids": [
@@ -29989,7 +29989,7 @@
       "page_title": "V 모형의 검증 대응",
       "original_topic": "그림 최상단 인수 테스트",
       "item_type": "diagram-label",
-      "emphasis_level": "Critical",
+      "emphasis_level": "Important",
       "content_reference": "/classroom/L01/41#a-L01-p041-07",
       "verification_status": "source-summary-reviewed",
       "concept_ids": [
@@ -49394,7 +49394,7 @@
       "source_page": 20,
       "title": "향상 보수의 특징",
       "mode": "definition",
-      "prompt": "새로운 【2】 추가\n기존 기능 【3】\n소프트웨어 확장과 【1】\n유지보수 활동 중 가장 많은 【4】을 소모한다고 설명",
+      "prompt": "향상 보수(Perfective Maintenance): 새로운 【2】 추가\n기존 기능 【3】\n소프트웨어 확장과 【1】\n유지보수 활동 중 가장 많은 【4】을 소모한다고 설명",
       "answer_groups": [
         [
           "리모델링"
@@ -49409,14 +49409,14 @@
           "자원"
         ]
       ],
-      "answer": "새로운 기능 추가\n기존 기능 개선\n소프트웨어 확장과 리모델링\n유지보수 활동 중 가장 많은 자원을 소모한다고 설명",
+      "answer": "향상 보수(Perfective Maintenance): 새로운 기능 추가\n기존 기능 개선\n소프트웨어 확장과 리모델링\n유지보수 활동 중 가장 많은 자원을 소모한다고 설명",
       "atomic_item_ids": [
         "a-L01-p020-01",
         "a-L01-p020-02",
         "a-L01-p020-03",
         "a-L01-p020-04"
       ],
-      "importance": "Important",
+      "importance": "Critical",
       "explanation": "향상 보수는 원하는 기능과 품질을 더 좋게 만드는 변경이다. 주문 검색 기능을 추가하는 자체 사례를 생각하면 오류 수정과 구별할 수 있다. 단계 전체 비용과 유형별 자원 소비를 혼동하지 않는다."
     },
     {
@@ -49427,7 +49427,7 @@
       "source_page": 21,
       "title": "예방 보수의 특징",
       "mode": "definition",
-      "prompt": "【3】 유지보수성·【1】을 위한 【4】적 유지보수\n【5】 오류 발생에 미리 대비\n예방 수단을 마련\n소프트웨어 【2】과 관련",
+      "prompt": "예방 보수(Preventive Maintenance): 【3】 유지보수성·【1】을 위한 【4】적 유지보수\n【5】 오류 발생에 미리 대비\n예방 수단을 마련\n소프트웨어 【2】과 관련",
       "answer_groups": [
         [
           "신뢰성"
@@ -49445,7 +49445,7 @@
           "잠재"
         ]
       ],
-      "answer": "미래 유지보수성·신뢰성을 위한 선제적 유지보수\n잠재 오류 발생에 미리 대비\n예방 수단을 마련\n소프트웨어 재공학과 관련",
+      "answer": "예방 보수(Preventive Maintenance): 미래 유지보수성·신뢰성을 위한 선제적 유지보수\n잠재 오류 발생에 미리 대비\n예방 수단을 마련\n소프트웨어 재공학과 관련",
       "atomic_item_ids": [
         "a-L01-p021-01",
         "a-L01-p021-02",
@@ -56033,7 +56033,7 @@
       "atomic_item_ids": [
         "a-L01-p012-02"
       ],
-      "importance": "Critical",
+      "importance": "Important",
       "explanation": "합성 중심은 만들어진 부품을 연결하고, 생성 중심은 명세를 입력해 도구가 코드를 만들게 한다. 둘 다 재사용의 방법이지만 개발자가 직접 부품을 조립하는지 자동 생성 도구를 쓰는지가 다르다. 기존 라이브러리 결합과 명세 기반 생성기를 대비해 암기한다.",
       "verification_status": "source-summary-reviewed"
     },
@@ -56069,7 +56069,7 @@
       "atomic_item_ids": [
         "a-L01-p012-04"
       ],
-      "importance": "Critical",
+      "importance": "Important",
       "explanation": "합성 중심은 만들어진 부품을 연결하고, 생성 중심은 명세를 입력해 도구가 코드를 만들게 한다. 둘 다 재사용의 방법이지만 개발자가 직접 부품을 조립하는지 자동 생성 도구를 쓰는지가 다르다. 기존 라이브러리 결합과 명세 기반 생성기를 대비해 암기한다.",
       "verification_status": "source-summary-reviewed"
     },
@@ -56105,7 +56105,7 @@
       "atomic_item_ids": [
         "a-L01-p012-06"
       ],
-      "importance": "Critical",
+      "importance": "Important",
       "explanation": "합성 중심은 만들어진 부품을 연결하고, 생성 중심은 명세를 입력해 도구가 코드를 만들게 한다. 둘 다 재사용의 방법이지만 개발자가 직접 부품을 조립하는지 자동 생성 도구를 쓰는지가 다르다. 기존 라이브러리 결합과 명세 기반 생성기를 대비해 암기한다.",
       "verification_status": "source-summary-reviewed"
     },
@@ -56771,7 +56771,7 @@
       "atomic_item_ids": [
         "a-L01-p019-02"
       ],
-      "importance": "Critical",
+      "importance": "Important",
       "explanation": "같은 코드 변경이어도 이유가 다르면 유형이 다르다. 잘못된 계산을 고치면 수정 보수, 바뀐 운영체제에서 실행되게 고치면 적응 보수다. 변경 작업 자체보다 변경을 일으킨 원인을 기준으로 분류한다.",
       "verification_status": "source-summary-reviewed"
     },
@@ -56807,7 +56807,7 @@
       "atomic_item_ids": [
         "a-L01-p019-04"
       ],
-      "importance": "Critical",
+      "importance": "Important",
       "explanation": "같은 코드 변경이어도 이유가 다르면 유형이 다르다. 잘못된 계산을 고치면 수정 보수, 바뀐 운영체제에서 실행되게 고치면 적응 보수다. 변경 작업 자체보다 변경을 일으킨 원인을 기준으로 분류한다.",
       "verification_status": "source-summary-reviewed"
     },
@@ -56820,12 +56820,12 @@
       "title": "향상 보수의 특징",
       "mode": "atomic",
       "prompt": "향상 보수의 특징 — 세부 항목 01을 떠올려 보세요.",
-      "answer": "새로운 기능 추가",
+      "answer": "향상 보수(Perfective Maintenance): 새로운 기능 추가",
       "answer_groups": [],
       "atomic_item_ids": [
         "a-L01-p020-01"
       ],
-      "importance": "Important",
+      "importance": "Critical",
       "explanation": "향상 보수는 원하는 기능과 품질을 더 좋게 만드는 변경이다. 주문 검색 기능을 추가하는 자체 사례를 생각하면 오류 수정과 구별할 수 있다. 단계 전체 비용과 유형별 자원 소비를 혼동하지 않는다.",
       "verification_status": "source-summary-reviewed"
     },
@@ -56892,12 +56892,12 @@
       "title": "예방 보수의 특징",
       "mode": "atomic",
       "prompt": "예방 보수의 특징 — 세부 항목 01을 떠올려 보세요.",
-      "answer": "미래 유지보수성·신뢰성을 위한 선제적 유지보수",
+      "answer": "예방 보수(Preventive Maintenance): 미래 유지보수성·신뢰성을 위한 선제적 유지보수",
       "answer_groups": [],
       "atomic_item_ids": [
         "a-L01-p021-01"
       ],
-      "importance": "Important",
+      "importance": "Critical",
       "explanation": "예방 보수는 문제가 발생한 뒤의 수리와 달리 앞으로 생길 문제를 줄이려는 활동이다. 내부 구조를 개선하여 변경하기 쉽게 만드는 것은 예방 목적과 연결된다. 이미 드러난 오류의 수정과 시점을 구분한다.",
       "verification_status": "source-summary-reviewed"
     },
@@ -56933,7 +56933,7 @@
       "atomic_item_ids": [
         "a-L01-p021-03"
       ],
-      "importance": "Critical",
+      "importance": "Important",
       "explanation": "예방 보수는 문제가 발생한 뒤의 수리와 달리 앞으로 생길 문제를 줄이려는 활동이다. 내부 구조를 개선하여 변경하기 쉽게 만드는 것은 예방 목적과 연결된다. 이미 드러난 오류의 수정과 시점을 구분한다.",
       "verification_status": "source-summary-reviewed"
     },
@@ -58409,7 +58409,7 @@
       "atomic_item_ids": [
         "a-L01-p031-05"
       ],
-      "importance": "Critical",
+      "importance": "Important",
       "explanation": "네 쌍을 오른쪽 항목만 외우지 말고 비교 관계로 기억한다. 문서를 없애자는 선언이 아니라 작동하는 결과와 협력을 더 중요하게 보자는 뜻이다. 발표 월은 원본에 적힌 표현이며 정확성을 확정한 날짜 문제는 출제하지 않는다.",
       "verification_status": "source-summary-reviewed"
     },
@@ -59453,7 +59453,7 @@
       "atomic_item_ids": [
         "a-L01-p041-03"
       ],
-      "importance": "Critical",
+      "importance": "Important",
       "explanation": "왼쪽의 설계 활동과 오른쪽의 테스트를 대응시켜 읽는다. 단위 테스트는 모듈, 통합 테스트는 구성요소 사이, 시스템 테스트는 요구와 연결된다. 모든 테스트가 마지막에 한 번만 수행되는 하나의 활동이라고 외우지 않는다.",
       "verification_status": "source-summary-reviewed"
     },
@@ -59471,7 +59471,7 @@
       "atomic_item_ids": [
         "a-L01-p041-04"
       ],
-      "importance": "Critical",
+      "importance": "Important",
       "explanation": "왼쪽의 설계 활동과 오른쪽의 테스트를 대응시켜 읽는다. 단위 테스트는 모듈, 통합 테스트는 구성요소 사이, 시스템 테스트는 요구와 연결된다. 모든 테스트가 마지막에 한 번만 수행되는 하나의 활동이라고 외우지 않는다.",
       "verification_status": "source-summary-reviewed"
     },
@@ -59489,7 +59489,7 @@
       "atomic_item_ids": [
         "a-L01-p041-05"
       ],
-      "importance": "Critical",
+      "importance": "Important",
       "explanation": "왼쪽의 설계 활동과 오른쪽의 테스트를 대응시켜 읽는다. 단위 테스트는 모듈, 통합 테스트는 구성요소 사이, 시스템 테스트는 요구와 연결된다. 모든 테스트가 마지막에 한 번만 수행되는 하나의 활동이라고 외우지 않는다.",
       "verification_status": "source-summary-reviewed"
     },
@@ -59525,7 +59525,7 @@
       "atomic_item_ids": [
         "a-L01-p041-07"
       ],
-      "importance": "Critical",
+      "importance": "Important",
       "explanation": "왼쪽의 설계 활동과 오른쪽의 테스트를 대응시켜 읽는다. 단위 테스트는 모듈, 통합 테스트는 구성요소 사이, 시스템 테스트는 요구와 연결된다. 모든 테스트가 마지막에 한 번만 수행되는 하나의 활동이라고 외우지 않는다.",
       "verification_status": "source-summary-reviewed"
     },

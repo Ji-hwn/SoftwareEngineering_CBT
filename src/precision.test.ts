@@ -23,6 +23,10 @@ describe('precision content contract',()=>{
   for(let i=0;i<30;i++){const s=selectQuestions(course.questions,settings,emptyState());expect(s.actualCritical).toBe(14);expect(s.questions.some(q=>q.retired)).toBe(false)}
   for(const q of course.questions.filter(q=>!q.retired)){expect(q.semantic_review).toBe('source-summary-reviewed');expect(q.atomic_item_ids?.length).toBeGreaterThan(0)}
  });
+ it('black supporting diagram labels and repeated term prefixes do not inherit direct red emphasis',()=>{
+  const atoms=course.atomic_items.filter(a=>a.lecture_id==='L01'&&a.source_page===41);expect(atoms[0].emphasis_level).toBe('Critical');expect(atoms.slice(1).some(a=>a.emphasis_level==='Critical')).toBe(false);
+  const manifesto=course.atomic_items.filter(a=>a.lecture_id==='L01'&&a.source_page===31);expect(manifesto.slice(0,4).every(a=>a.emphasis_level==='Critical')).toBe(true);expect(manifesto[4].emphasis_level).toBe('Important');
+ });
  it('structured recall accepts only full exact terms, preserves order when needed',()=>{
   const v=questionMap['q-v2-recall-verification'];expect(grade(v,'명확성; 완전성; 검증가능성; 일관성')).toBe(true);expect(grade(v,'완전성;일관성;명확성')).toBe(false);expect(grade(v,'완전성 아님;일관성;명확성;검증가능성')).toBe(false);
   const order=questionMap['q-v2-recall-lifecycle-steps'];expect(grade(order,'계획; 분석; 설계; 구현; 테스트; 유지보수')).toBe(true);expect(grade(order,'분석; 계획; 설계; 구현; 테스트; 유지보수')).toBe(false);

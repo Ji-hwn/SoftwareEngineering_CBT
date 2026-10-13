@@ -28,7 +28,7 @@ export function PageLesson({page}:{page:PageContent}){
   <div className="tags"><span>PDF {page.page}p</span><span>{atoms.length}개 세부 항목</span><span>원본 기반 재구성</span></div>
   <h2>{page.title}</h2>
   <p className="muted">현재 페이지의 내용을 먼저 학습하세요. 통합 개념 설명은 아래에서 펼칠 수 있습니다.</p>
-  <section><span className="eyebrow">01 / 현재 페이지 핵심 내용</span><ol className="atomic-list">{atoms.map(a=><li id={a.atomic_item_id} key={a.atomic_item_id} className={a.emphasis_level.toLowerCase()}><span>{a.text}</span>{a.emphasis_level==='Critical'&&<small>직접 강조</small>}{a.verification_status==='needs-review'&&<small className="review-warning">원본 검수 필요</small>}</li>)}</ol></section>
+  <section><span className="eyebrow">01 / 현재 페이지 핵심 내용</span><ol className="atomic-list">{atoms.map(a=><li id={a.atomic_item_id} key={a.atomic_item_id} className={a.emphasis_level.toLowerCase()}><span>{a.text}</span>{a.emphasis_level==='Critical'&&<small>직접 강조 포함</small>}{a.verification_status==='needs-review'&&<small className="review-warning">원본 검수 필요</small>}</li>)}</ol></section>
   {page.has_red_heading&&<p className="muted">빨간 단원·목록 제목과 직접 강조된 본문을 구분했습니다. 제목 색을 모든 항목의 직접 강조로 확대하지 않습니다.</p>}
   <section><span className="eyebrow">02 / 쉬운 설명 · 자체 제작 학습 보충</span><p>{page.easy}</p></section>
   {diagrams.map(d=><Diagram key={d} kind={d}/>)}
