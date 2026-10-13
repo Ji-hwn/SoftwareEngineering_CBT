@@ -37,3 +37,9 @@ test('v1 active exam with retired question and past results restores without los
  await page.goto('#/results/old-finished');await expect(page.getByRole('heading',{name:'정답 1 · 오답 0 · 미응답 0'})).toBeVisible();
  const state=await page.evaluate(()=>JSON.parse(localStorage.getItem('jihwanlee-se-cbt-v1')!));expect(state.notes['q-se-2']).toBe('이전 메모');expect(state.completed).toEqual(['se']);expect(state.reviews.se.reviews).toBe(3);expect(state.history).toHaveLength(2);expect(state.settings.theme).toBe('dark');
 });
+test('definition input hides the answer and uses the existing concept review schedule',async({page})=>{
+ await page.goto('#/memory');await page.getByRole('combobox',{name:'암기 유형'}).selectOption('definition');
+ await expect(page.getByRole('heading',{name:'정의에서 용어 찾기'})).toBeVisible();await expect(page.getByRole('heading',{name:'소프트웨어공학',exact:true})).toHaveCount(0);
+ await page.getByRole('textbox',{name:'빈칸 1',exact:true}).fill('소프트웨어공학');await page.getByRole('button',{name:'입력 답안 채점'}).click();await page.getByRole('button',{name:'기억했어요'}).click();
+ const state=await page.evaluate(()=>JSON.parse(localStorage.getItem('jihwanlee-se-cbt-v1')!));expect(state.reviews.se.reviews).toBe(1);expect(state.reviews.se.step).toBe(0);expect(state.cardReviews.se).toBeUndefined();
+});
