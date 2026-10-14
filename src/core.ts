@@ -1,6 +1,6 @@
 import type {Answer,Question,StudyState,ExamSettings,Exam} from './types';
 import {isMidtermExcluded,isMidtermPriority,hintScore,getConceptHints} from './professorHints';
-import {inMidtermScope,isProfessorStyle,isClassQuiz} from './examScope';
+import {inMidtermScope,isProfessorStyle,isClassQuiz,matchesSelectedSources} from './examScope';
 export const KEY='jihwanlee-se-cbt-v1';
 export const emptyState=():StudyState=>({version:1,content_revision:2,completed:[],completedPages:[],bookmarks:[],reviews:{},cardReviews:{},memoryAttempts:[],attempts:[],wrong:{},notes:{},history:[],active:null,settings:{theme:'light',font:17,criticalRatio:70,profile:'jihwanlee'},exposure:{}});
 export const normalize=(s:string)=>s.normalize('NFKC').toLocaleLowerCase().replace(/\s+/g,'').trim();
@@ -52,7 +52,7 @@ export function reviewConcept(state:StudyState,id:string,known:boolean,now=Date.
 export function remaining(exam:Exam,now=Date.now()){return Math.max(0,Math.ceil((exam.deadline-now)/1000))}
 export function selectQuestions(all:Question[],settings:ExamSettings,state:StudyState,rng=Math.random){
   const weakConcepts=new Set(all.filter(q=>state.wrong[q.question_id]).map(q=>q.concept_id));
-  const pool=all.filter(q=>q.verified&&!q.retired&&inMidtermScope(q)&&!isMidtermExcluded(q)&&(settings.mode!=='professor-style'||isProfessorStyle(q))&&(settings.mode!=='class-quiz'||isClassQuiz(q))&&(settings.mode!=='hint-focus'||getConceptHints(q.concept_id).some(h=>h.tier!=='excluded'))&&(!settings.lectures.length||settings.lectures.includes(q.lecture_id))&&settings.types.includes(q.question_type)&&(!settings.wrongOnly||(settings.varyWrong?weakConcepts.has(q.concept_id):!!state.wrong[q.question_id])));
+  const pool=all.filter(q=>q.verified&&!q.retired&&inMidtermScope(q)&&!isMidtermExcluded(q)&&(settings.mode!=='professor-style'||isProfessorStyle(q))&&(settings.mode!=='class-quiz'||isClassQuiz(q))&&(settings.mode!=='hint-focus'||getConceptHints(q.concept_id).some(h=>h.tier!=='excluded'))&&matchesSelectedSources(q,settings.lectures)&&settings.types.includes(q.question_type)&&(!settings.wrongOnly||(settings.varyWrong?weakConcepts.has(q.concept_id):!!state.wrong[q.question_id])));
   const groups=(qs:Question[])=>new Set(qs.map(q=>q.selection_family??q.question_id)).size;
   const count=Math.min(settings.count,groups(pool));const target=Math.round(count*settings.criticalRatio/100);
   const crit=pool.filter(isMidtermPriority);const normal=pool.filter(q=>!isMidtermPriority(q));

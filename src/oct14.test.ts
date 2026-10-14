@@ -1,11 +1,15 @@
 import {describe,it,expect} from 'vitest';
 import {course} from './store';
 import {selectQuestions,emptyState,grade,restore,recordAnswer} from './core';
-import {inMidtermScope,isClassQuiz} from './examScope';
+import {inMidtermScope,isClassQuiz,matchesSelectedSources} from './examScope';
 import {isMidtermExcluded} from './professorHints';
 import type {ExamSettings} from './types';
 const config:ExamSettings={lectures:[],count:20,minutes:30,criticalRatio:70,difficulty:{easy:30,medium:50,hard:20},types:['choice','comparison','uml','calculation','multi','short','fill','ox'],wrongOnly:false};
 describe('October 14 syllabus and classroom quiz integration',()=>{
+ it('quiz-only selection includes mapped general-lecture variants and excludes unrelated topics',()=>{
+  for(const id of ['L13','L14']){const r=selectQuestions(course.questions,{...config,mode:'class-quiz',lectures:[id]},emptyState());expect(r.questions.length).toBeGreaterThan(10);expect(r.questions.some(q=>q.lecture_id==='L12')).toBe(true);expect(r.questions.every(q=>matchesSelectedSources(q,[id]))).toBe(true)}
+  expect(matchesSelectedSources(course.questions.find(q=>q.question_id==='q-se-2')!,['L13'])).toBe(false);
+ });
  it('adds precisely 26 general learning pages without promoting quizzes to general lectures',()=>{
   expect(course.lectures).toHaveLength(8);expect(course.pages).toHaveLength(215);expect(course.pages.filter(p=>p.atomic_item_ids.length)).toHaveLength(199);
   expect(course.pages.filter(p=>p.lecture_id==='L12'&&p.atomic_item_ids.length).map(p=>p.page)).toEqual(Array.from({length:26},(_,i)=>i+2));

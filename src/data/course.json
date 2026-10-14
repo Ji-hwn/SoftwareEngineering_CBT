@@ -7864,19 +7864,32 @@
           "lecture_id": "L12",
           "source_pdf": "소프트웨어공학_Lecture_12.pdf",
           "source_page": 16
+        },
+        {
+          "lecture_id": "L14",
+          "source_pdf": "소프트웨어공학_Lecture_14_solution.pdf",
+          "source_page": 18
+        },
+        {
+          "lecture_id": "L14",
+          "source_pdf": "소프트웨어공학_Lecture_14_solution.pdf",
+          "source_page": 19
         }
       ],
       "section": "객체지향 분석",
       "subsection": "Rumbaugh 객체 모델링",
       "name": "Rumbaugh 객체 모델링",
       "definition": "객체·속성·연산·관계를 식별해 객체 다이어그램으로 표현하며 가장 선행한다.",
-      "details": [],
+      "details": [
+        "당일 퀴즈10번은 객체 모델링을 정보 모델링이라고도 부른다. 별칭은 일반 강의16쪽이 아니라 당일 풀이 출처다."
+      ],
       "easy": "시스템에 무엇이 있는지 정의한다.",
       "background": "분석 산출물의 관점과 지원 도구를 구분해야 같은 시스템을 다른 의미로 해석하는 오류를 줄일 수 있다.",
       "example": "자체 예: 회원 객체와 주문 객체의 관계를 찾는다.",
       "comparison": "일반 정적 모델링의 클래스 다이어그램 연결을 그대로 적용하지 않는다.",
       "memorize": [
-        "객체·속성·연산·관계를 식별해 객체 다이어그램으로 표현하며 가장 선행한다."
+        "객체·속성·연산·관계를 식별해 객체 다이어그램으로 표현하며 가장 선행한다.",
+        "당일 퀴즈10번은 객체 모델링을 정보 모델링이라고도 부른다. 별칭은 일반 강의16쪽이 아니라 당일 풀이 출처다."
       ],
       "importance": "Critical",
       "legacy_importance": "Critical",
@@ -7984,19 +7997,34 @@
           "lecture_id": "L12",
           "source_pdf": "소프트웨어공학_Lecture_12.pdf",
           "source_page": 17
+        },
+        {
+          "lecture_id": "L14",
+          "source_pdf": "소프트웨어공학_Lecture_14_solution.pdf",
+          "source_page": 26
+        },
+        {
+          "lecture_id": "L14",
+          "source_pdf": "소프트웨어공학_Lecture_14_solution.pdf",
+          "source_page": 27
         }
       ],
       "section": "객체지향 분석",
       "subsection": "Booch 방법",
       "name": "Booch 방법",
       "definition": "미시적·거시적 개발 프로세스를 모두 사용한다.",
-      "details": [],
+      "details": [
+        "당일 퀴즈는 클래스·객체를 식별하고 속성·연산 및 관계를 정의하는 활동을 제시한다.",
+        "다이어그램 작성·클래스 계층 정의·클러스터링과 클래스·객체 구현까지의 활동을 함께 제시한다."
+      ],
       "easy": "크기가 다른 개발 프로세스를 함께 본다.",
       "background": "분석 산출물의 관점과 지원 도구를 구분해야 같은 시스템을 다른 의미로 해석하는 오류를 줄일 수 있다.",
       "example": "자체 예: 방법론 이름을 두 프로세스 특징과 연결한다.",
       "comparison": "Use Case 강조는 Jacobson이다.",
       "memorize": [
-        "미시적·거시적 개발 프로세스를 모두 사용한다."
+        "미시적·거시적 개발 프로세스를 모두 사용한다.",
+        "당일 퀴즈는 클래스·객체를 식별하고 속성·연산 및 관계를 정의하는 활동을 제시한다.",
+        "다이어그램 작성·클래스 계층 정의·클러스터링과 클래스·객체 구현까지의 활동을 함께 제시한다."
       ],
       "importance": "Critical",
       "legacy_importance": "Critical",
@@ -8458,19 +8486,44 @@
           "lecture_id": "L12",
           "source_pdf": "소프트웨어공학_Lecture_12.pdf",
           "source_page": 26
+        },
+        {
+          "lecture_id": "L14",
+          "source_pdf": "소프트웨어공학_Lecture_14_solution.pdf",
+          "source_page": 70
+        },
+        {
+          "lecture_id": "L14",
+          "source_pdf": "소프트웨어공학_Lecture_14_solution.pdf",
+          "source_page": 71
+        },
+        {
+          "lecture_id": "L14",
+          "source_pdf": "소프트웨어공학_Lecture_14_solution.pdf",
+          "source_page": 72
+        },
+        {
+          "lecture_id": "L14",
+          "source_pdf": "소프트웨어공학_Lecture_14_solution.pdf",
+          "source_page": 73
         }
       ],
       "section": "분석 자동화·요구 관리",
       "subsection": "요구사항 관리 도구",
       "name": "요구사항 관리 도구",
       "definition": "요구사항을 관리·추적하고 프로젝트 중 변경을 효과적으로 관리하는 도구다.",
-      "details": [],
+      "details": [
+        "당일 퀴즈36번은 요구의 식별·기록·변경관리·추적·검증을 주요 기능으로 제시한다.",
+        "당일 퀴즈37번은 요구 변경의 비용편익 분석·추적·영향 평가를 필요성과 연결하며 기존·신규 시스템의 성능 비교를 구분한다."
+      ],
       "easy": "요구가 바뀔 때 연결과 영향을 추적한다.",
       "background": "분석 산출물의 관점과 지원 도구를 구분해야 같은 시스템을 다른 의미로 해석하는 오류를 줄일 수 있다.",
       "example": "자체 예: 결제 요구의 변경이 관련 테스트에 미치는 영향을 확인한다.",
       "comparison": "파일 버전만 관리하는 것과 목적이 다르다.",
       "memorize": [
-        "요구사항을 관리·추적하고 프로젝트 중 변경을 효과적으로 관리하는 도구다."
+        "요구사항을 관리·추적하고 프로젝트 중 변경을 효과적으로 관리하는 도구다.",
+        "당일 퀴즈36번은 요구의 식별·기록·변경관리·추적·검증을 주요 기능으로 제시한다.",
+        "당일 퀴즈37번은 요구 변경의 비용편익 분석·추적·영향 평가를 필요성과 연결하며 기존·신규 시스템의 성능 비교를 구분한다."
       ],
       "importance": "Standard",
       "legacy_importance": "Standard",
@@ -8737,7 +8790,10 @@
       "name": "CASE 활용과 설계 지식",
       "definition": "당일 퀴즈는 설계 지식이 없을 때 효과적이라는 설명을 부적절하다고 표시한다.",
       "details": [
-        "정보 저장소·도구 구성·통합화 관련 설명을 함께 제시한다."
+        "정보 저장소·도구 구성·통합화 관련 설명을 함께 제시한다.",
+        "당일 자료의 저장소 내용: 데이터·프로세스·다이어그램·규칙 정보.",
+        "당일 자료의 도구 구성: 다이어그램 도구·설계 분석기·코드 생성기·정보 저장소·프로젝트 관리·재공학·프로토타이핑 도구.",
+        "당일 풀이의 설명에는 차세대 CASE의 통합화·지능화도 포함된다."
       ],
       "easy": "자동화 도구를 쓴다고 모델과 설계를 이해할 필요가 사라지는 것은 아니다.",
       "background": "분석 산출물의 관점과 지원 도구를 구분해야 같은 시스템을 다른 의미로 해석하는 오류를 줄일 수 있다.",
@@ -8745,7 +8801,10 @@
       "comparison": "이 내용을 L12의 직접 빨간 강조라고 표시하지 않는다.",
       "memorize": [
         "당일 퀴즈는 설계 지식이 없을 때 효과적이라는 설명을 부적절하다고 표시한다.",
-        "정보 저장소·도구 구성·통합화 관련 설명을 함께 제시한다."
+        "정보 저장소·도구 구성·통합화 관련 설명을 함께 제시한다.",
+        "당일 자료의 저장소 내용: 데이터·프로세스·다이어그램·규칙 정보.",
+        "당일 자료의 도구 구성: 다이어그램 도구·설계 분석기·코드 생성기·정보 저장소·프로젝트 관리·재공학·프로토타이핑 도구.",
+        "당일 풀이의 설명에는 차세대 CASE의 통합화·지능화도 포함된다."
       ],
       "importance": "Important",
       "legacy_importance": "Important",
@@ -8788,19 +8847,32 @@
           "lecture_id": "L14",
           "source_pdf": "소프트웨어공학_Lecture_14_solution.pdf",
           "source_page": 45
+        },
+        {
+          "lecture_id": "L14",
+          "source_pdf": "소프트웨어공학_Lecture_14_solution.pdf",
+          "source_page": 28
+        },
+        {
+          "lecture_id": "L14",
+          "source_pdf": "소프트웨어공학_Lecture_14_solution.pdf",
+          "source_page": 29
         }
       ],
       "section": "당일 퀴즈 보충 개념",
       "subsection": "CASE 품질·재사용·유지보수",
       "name": "CASE 품질·재사용·유지보수",
       "definition": "당일 퀴즈는 품질·재사용·유지보수 향상을 CASE 효과로 다루며 사용자 사용법 교육과 구분한다.",
-      "details": [],
+      "details": [
+        "당일 풀이에서 표준화된 개발 환경·문서 자동화와 작업 과정·자료 공유를 통한 커뮤니케이션을 설명한다."
+      ],
       "easy": "개발 과정 지원 효과와 최종 사용자의 교육 목적을 구별한다.",
       "background": "분석 산출물의 관점과 지원 도구를 구분해야 같은 시스템을 다른 의미로 해석하는 오류를 줄일 수 있다.",
       "example": "자체 예: 공통 모듈 재사용과 모델 검사를 지원한다.",
       "comparison": "생명주기 모델의 위험 분석 단계와는 다른 개념이다.",
       "memorize": [
-        "당일 퀴즈는 품질·재사용·유지보수 향상을 CASE 효과로 다루며 사용자 사용법 교육과 구분한다."
+        "당일 퀴즈는 품질·재사용·유지보수 향상을 CASE 효과로 다루며 사용자 사용법 교육과 구분한다.",
+        "당일 풀이에서 표준화된 개발 환경·문서 자동화와 작업 과정·자료 공유를 통한 커뮤니케이션을 설명한다."
       ],
       "importance": "Important",
       "legacy_importance": "Important",
@@ -26821,7 +26893,10 @@
         "a-L01-p029-07",
         "a-L01-p029-08"
       ],
-      "class_quiz_date": "2026-10-14"
+      "class_quiz_date": "2026-10-14",
+      "class_quiz_reference_ids": [
+        "ref-13-006"
+      ]
     },
     {
       "lecture_id": "L01",
@@ -31309,7 +31384,11 @@
         "a-L01-p028-11",
         "a-L01-p028-12"
       ],
-      "class_quiz_date": "2026-10-14"
+      "class_quiz_date": "2026-10-14",
+      "class_quiz_reference_ids": [
+        "ref-14-003",
+        "ref-14-004"
+      ]
     },
     {
       "lecture_id": "L06",

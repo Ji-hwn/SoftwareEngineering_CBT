@@ -1,6 +1,14 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 const data=JSON.parse(readFileSync('src/data/course.json','utf8'));
+test('selecting quiz13 retains its mapped L12 variants and avoids unrelated quiz14 topics',async({page})=>{
+ await page.goto('#/exam?mode=class-quiz');await page.getByLabel(/^당일 퀴즈 13 ·/).check();await page.getByRole('button',{name:'시험 시작하기'}).click();
+ const e=await page.evaluate(()=>JSON.parse(localStorage.getItem('jihwanlee-se-cbt-v1')!).active);const qs=Object.values(e.snapshots) as any[];
+ expect(qs.length).toBeGreaterThan(10);expect(qs.some(q=>q.lecture_id==='L12')).toBe(true);expect(qs.every(q=>q.class_quiz_reference_ids.some((id:string)=>id.startsWith('ref-13-')))).toBe(true);
+ await page.getByRole('button',{name:'답안 제출하기'}).click();await page.getByRole('button',{name:'제출 확정'}).click();await expect(page.getByRole('heading',{name:'이번 시험에서 배운 것',exact:true})).toBeVisible();
+ await page.goto('#/bank');await page.getByRole('combobox',{name:'문제 Lecture'}).selectOption('L13');await expect(page.locator('.practice')).toHaveCount(10);const stems=await page.locator('.practice h3').allTextContents();expect(stems.some(t=>data.questions.some((q:any)=>q.question_text===t&&q.lecture_id==='L12'))).toBe(true);
+ await page.goto('#/memory');await page.getByRole('combobox',{name:'암기 범위'}).selectOption('L13');const name=await page.locator('.flashcard h2').innerText();const c=data.concepts.find((c:any)=>c.name===name);expect(c).toBeDefined();expect(c.lecture_id).not.toBe('L13');
+});
 test('L12 all 26 pages, symbols, search, page progress and PDF source connection',async({page},info)=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('#/lectures');await expect(page.getByRole('heading',{name:'분석 모델·구조적 분석·CASE·HIPO',exact:true})).toBeVisible();
  for(const p of data.pages.filter((p:any)=>p.lecture_id==='L12'&&p.atomic_item_ids.length)){await page.goto(`#/classroom/L12/${p.page}`);await expect(page.locator('.page-lesson h2')).toHaveText(p.title);await expect(page.locator('.atomic-list li')).toHaveCount(p.atomic_item_ids.length);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true)}
