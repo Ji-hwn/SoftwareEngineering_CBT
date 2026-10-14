@@ -10,7 +10,7 @@ test('hint menu, 14 cards, filtered practice and source page connect on desktop 
  await expect(page.locator('.hints-notice')).toContainText('PDF');
  const actors=page.locator('.hint-card').filter({has:page.getByRole('heading',{name:'액터의 종류',exact:true})});
  await actors.getByRole('link',{name:/문제 연습/}).click();await expect(page).toHaveURL(/hint=actors/);
- await expect(page.locator('.practice')).toHaveCount(3);
+ await expect(page.locator('.practice')).toHaveCount(5);
  const proxy=page.locator('.practice').filter({has:page.getByRole('heading',{name:'교수님이 예로 든 조교의 프록시 액터 조건은?'})});
  await proxy.getByRole('button',{name:/조교 본인 계정/}).click();await proxy.getByRole('button',{name:'답 확인하기'}).click();
  await expect(proxy.getByText('정답입니다',{exact:true})).toBeVisible();

@@ -31,3 +31,6 @@ scripts/finalize_text.py
 
 APPLY_PROFESSOR_HINTS.md
 PROFESSOR_MIDTERM_HINTS.md
+reference_quizzes/
+scripts/analyze_reference_quizzes.py
+scripts/refine_midterm.py

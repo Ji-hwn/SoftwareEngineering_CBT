@@ -1,5 +1,6 @@
 import type {Answer,Question,StudyState,ExamSettings,Exam} from './types';
-import {isMidtermExcluded,isMidtermPriority,hintScore} from './professorHints';
+import {isMidtermExcluded,isMidtermPriority,hintScore,getConceptHints} from './professorHints';
+import {inMidtermScope,isProfessorStyle} from './examScope';
 export const KEY='jihwanlee-se-cbt-v1';
 export const emptyState=():StudyState=>({version:1,content_revision:2,completed:[],completedPages:[],bookmarks:[],reviews:{},cardReviews:{},memoryAttempts:[],attempts:[],wrong:{},notes:{},history:[],active:null,settings:{theme:'light',font:17,criticalRatio:70,profile:'jihwanlee'},exposure:{}});
 export const normalize=(s:string)=>s.normalize('NFKC').toLocaleLowerCase().replace(/\s+/g,'').trim();
@@ -27,7 +28,7 @@ export function restore(raw:unknown):StudyState {
   const record=(x:unknown)=>!!x&&typeof x==='object'&&!Array.isArray(x);
   if(d.version!==1||!arrayStrings(d.completed)||!arrayStrings(d.bookmarks)||!Array.isArray(d.attempts)||!Array.isArray(d.history)||!record(d.reviews)||!record(d.wrong)||!record(d.notes)||!record(d.exposure)||!record(d.settings)||!['light','dark'].includes(d.settings.theme)||!Number.isFinite(d.settings.font)||d.settings.font<14||d.settings.font>24||!Number.isFinite(d.settings.criticalRatio)||d.settings.criticalRatio<0||d.settings.criticalRatio>100||typeof d.settings.profile!=='string')throw Error('백업 스키마 또는 설정을 확인하세요.');
   if(!Object.values(d.notes).every(x=>typeof x==='string')||!Object.values(d.wrong).every(x=>record(x)&&Number.isFinite(x.count)&&x.count>=0&&Number.isFinite(x.last))||!Object.values(d.reviews).every(x=>record(x)&&Number.isFinite(x.due)&&Number.isInteger(x.step)&&typeof x.unknown==='boolean'&&Number.isFinite(x.reviews))||!Object.values(d.exposure).every(x=>Number.isFinite(x)&&x>=0)||!d.attempts.every(x=>record(x)&&typeof x.question_id==='string'&&typeof x.concept_id==='string'&&typeof x.correct==='boolean'&&Number.isFinite(x.at)))throw Error('백업 학습 기록이 손상되었습니다.');
-  const validExam=(x:Exam)=>record(x)&&typeof x.id==='string'&&arrayStrings(x.question_ids)&&record(x.answers)&&arrayStrings(x.flags)&&Number.isFinite(x.started)&&Number.isFinite(x.deadline)&&record(x.settings)&&arrayStrings(x.settings.lectures)&&Number.isFinite(x.settings.count)&&Number.isFinite(x.settings.minutes);
+  const validExam=(x:Exam)=>record(x)&&typeof x.id==='string'&&arrayStrings(x.question_ids)&&record(x.answers)&&arrayStrings(x.flags)&&Number.isFinite(x.started)&&Number.isFinite(x.deadline)&&record(x.settings)&&arrayStrings(x.settings.lectures)&&(x.settings.mode===undefined||['mixed','professor-style','hint-focus'].includes(x.settings.mode))&&(x.settings.varyWrong===undefined||typeof x.settings.varyWrong==='boolean')&&Number.isFinite(x.settings.count)&&Number.isFinite(x.settings.minutes);
   if(!d.history.every(x=>validExam(x)&&Number.isFinite(x.submitted))||(d.active!==null&&!validExam(d.active)))throw Error('백업 시험 기록이 손상되었습니다.');
   // Additive migration: keep the v1 storage key, IDs, answer indexes and absolute exam deadline.
   if(d.completedPages!==undefined&&!arrayStrings(d.completedPages))throw Error('페이지 진도 형식을 확인하세요.');
@@ -50,13 +51,15 @@ export function reviewConcept(state:StudyState,id:string,known:boolean,now=Date.
 }
 export function remaining(exam:Exam,now=Date.now()){return Math.max(0,Math.ceil((exam.deadline-now)/1000))}
 export function selectQuestions(all:Question[],settings:ExamSettings,state:StudyState,rng=Math.random){
-  const pool=all.filter(q=>q.verified&&!q.retired&&!isMidtermExcluded(q)&&(!settings.lectures.length||settings.lectures.includes(q.lecture_id))&&settings.types.includes(q.question_type)&&(!settings.wrongOnly||!!state.wrong[q.question_id]));
-  const count=Math.min(settings.count,pool.length);const target=Math.round(count*settings.criticalRatio/100);
+  const weakConcepts=new Set(all.filter(q=>state.wrong[q.question_id]).map(q=>q.concept_id));
+  const pool=all.filter(q=>q.verified&&!q.retired&&inMidtermScope(q)&&!isMidtermExcluded(q)&&(settings.mode!=='professor-style'||isProfessorStyle(q))&&(settings.mode!=='hint-focus'||getConceptHints(q.concept_id).some(h=>h.tier!=='excluded'))&&(!settings.lectures.length||settings.lectures.includes(q.lecture_id))&&settings.types.includes(q.question_type)&&(!settings.wrongOnly||(settings.varyWrong?weakConcepts.has(q.concept_id):!!state.wrong[q.question_id])));
+  const groups=(qs:Question[])=>new Set(qs.map(q=>q.selection_family??q.question_id)).size;
+  const count=Math.min(settings.count,groups(pool));const target=Math.round(count*settings.criticalRatio/100);
   const crit=pool.filter(isMidtermPriority);const normal=pool.filter(q=>!isMidtermPriority(q));
-  const criticalTarget=Math.min(crit.length,Math.max(target,count-normal.length));
+  const criticalTarget=Math.min(groups(crit),Math.max(target,count-groups(normal)));
   const sum=settings.difficulty.easy+settings.difficulty.medium+settings.difficulty.hard;
   const quotas={easy:count*(sum?settings.difficulty.easy/sum:.3),medium:count*(sum?settings.difficulty.medium/sum:.5),hard:count*(sum?settings.difficulty.hard/sum:.2)};
-  const selected:Question[]=[];const used=new Set<string>();const diffCount={easy:0,medium:0,hard:0};const lectureCount:Record<string,number>={};const conceptCount:Record<string,number>={};
+  const selected:Question[]=[];const used=new Set<string>();const usedFamilies=new Set<string>();const diffCount={easy:0,medium:0,hard:0};const lectureCount:Record<string,number>={};const conceptCount:Record<string,number>={};
   let cc=0;
   // The user's professor specifically said 3R would appear. For a normal
   // midterm mock exam, represent it at least once when eligible, without
@@ -66,25 +69,25 @@ export function selectQuestions(all:Question[],settings:ExamSettings,state:Study
     const threeR=pool.filter(q=>q.concept_id==='3r'&&isMidtermPriority(q))
       .sort((a,b)=>(state.exposure[a.question_id]??0)-(state.exposure[b.question_id]??0))[0];
     if(threeR){
-      selected.push(threeR);used.add(threeR.question_id);cc++;
+      selected.push(threeR);used.add(threeR.question_id);usedFamilies.add(threeR.selection_family??threeR.question_id);cc++;
       diffCount[threeR.difficulty]++;lectureCount[threeR.lecture_id]=1;conceptCount[threeR.concept_id]=1;
     }
   }
   while(selected.length<count){
     const wantCrit=cc<criticalTarget&&(selected.length-cc>=count-criticalTarget||cc<(selected.length+1)*criticalTarget/count);
-    const candidates=pool.filter(q=>!used.has(q.question_id)&&isMidtermPriority(q)===wantCrit);
+    const candidates=pool.filter(q=>!used.has(q.question_id)&&!usedFamilies.has(q.selection_family??q.question_id)&&isMidtermPriority(q)===wantCrit);
     let best:Question|undefined;let score=-Infinity;
     for(const q of candidates){
       const dscore=quotas[q.difficulty]-diffCount[q.difficulty];
-      const value=(lectureCount[q.lecture_id]?0:60)+dscore*5-(conceptCount[q.concept_id]??0)*4-(state.exposure[q.question_id]??0)*3+hintScore(q)+(q.concept_id==='3r'&&selected.length===0&&settings.criticalRatio>0?1000:0)+rng();
+      const value=(lectureCount[q.lecture_id]?0:60)+dscore*5-(conceptCount[q.concept_id]??0)*4-(state.exposure[q.question_id]??0)*3+hintScore(q)+(q.teacher_style?2:0)-(settings.varyWrong&&state.wrong[q.question_id]?5:0)+(q.concept_id==='3r'&&selected.length===0&&settings.criticalRatio>0?1000:0)+rng();
       if(value>score){best=q;score=value}
     }
     if(!best)break;
-    selected.push(best);used.add(best.question_id);cc+=isMidtermPriority(best)?1:0;diffCount[best.difficulty]++;lectureCount[best.lecture_id]=(lectureCount[best.lecture_id]??0)+1;conceptCount[best.concept_id]=(conceptCount[best.concept_id]??0)+1;
+    selected.push(best);used.add(best.question_id);usedFamilies.add(best.selection_family??best.question_id);cc+=isMidtermPriority(best)?1:0;diffCount[best.difficulty]++;lectureCount[best.lecture_id]=(lectureCount[best.lecture_id]??0)+1;conceptCount[best.concept_id]=(conceptCount[best.concept_id]??0)+1;
   }
   const notices=[];
   if(count<settings.count)notices.push(`조건에 맞는 검증 문항이 ${count}개입니다. 중복 없이 ${count}문항으로 시작합니다.`);
-  if(criticalTarget!==target)notices.push(`강조 ${crit.length}개·일반 ${normal.length}개 후보로 목표 강조 ${target}문항을 충족할 수 없어 ${criticalTarget}문항으로 조정했습니다.`);
+  if(criticalTarget!==target)notices.push(`강조 ${groups(crit)}개·일반 ${groups(normal)}개 후보로 목표 강조 ${target}문항을 충족할 수 없어 ${criticalTarget}문항으로 조정했습니다.`);
   const goal={easy:Math.floor(quotas.easy),medium:Math.floor(quotas.medium),hard:Math.floor(quotas.hard)};
   let left=count-goal.easy-goal.medium-goal.hard;for(const k of [...(['easy','medium','hard'] as const)].sort((a,b)=>(quotas[b]-goal[b])-(quotas[a]-goal[a])))if(left-->0)goal[k]++;
   if((['easy','medium','hard'] as const).some(k=>diffCount[k]!==goal[k]))notices.push(`강조 비율·단원 균형·후보 난이도를 함께 적용한 실제 난이도는 쉬움 ${diffCount.easy}, 보통 ${diffCount.medium}, 어려움 ${diffCount.hard}문항입니다. 목표 ${goal.easy}/${goal.medium}/${goal.hard}와 차이가 있습니다.`);

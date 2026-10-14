@@ -1,4 +1,4 @@
-import json
+import json,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 data=json.loads((ROOT/'src/data/course.json').read_text(encoding='utf-8'))
@@ -15,10 +15,26 @@ expected={('loc-estimate',2):(600+4*900+1200)/6,('mm',2):5*12+7*5,('mm',3):12000
 checks=[]
 new_expected={'q-v2-mm-1':50000/500,'q-v2-cpm-example-2':es['C'],'q-v2-cpm-example-3':es['E']}
 for q in data['questions']:
+    if q.get('calculation'):
+        spec=q['calculation'];v=spec['inputs'];method=spec['method']
+        if method in ['loc','pert']:result=(v[0]+4*v[1]+v[2])/6
+        elif method=='mm':result=sum(v[i]*v[i+1] for i in range(0,len(v),2))
+        elif method=='cost':result=v[0]*v[1]
+        elif method=='duration':result=v[0]/v[1]/v[2]
+        elif method=='productivity':result=v[0]/v[1]
+        elif method=='cpm-slack-pair':result=[ls[t]-es[t] for t in v]
+        else:raise ValueError('Unverified calculation method '+method)
+        displayed=[float(x) for x in re.findall(r'[-+]?(?:\d+\.?\d*|\.\d+)',q['options'][q['correct_answer']])]
+        computed=result if isinstance(result,list) else [result]
+        given=spec['answer'] if isinstance(spec['answer'],list) else [spec['answer']]
+        passed=len(displayed)==len(computed)==len(given) and all(abs(a-b)<1e-9 and abs(a-c)<1e-9 for a,b,c in zip(computed,given,displayed))
+        checks.append({'question_id':q['question_id'],'computed':result,'answer':spec['answer'],'displayed_answer':displayed,'passed':passed,'unit':spec['unit'],'origin':'자체 변형 수치; 일반PDF의 검증된 공식 사용'})
+        continue
     if q['question_type']!='calculation':continue
     qid=q['question_id'];key=(q['concept_id'],int(qid.split('-')[-1]));result=new_expected[qid] if qid.startswith('q-v2-') else expected[key];answer=float(q['correct_answer'])
     checks.append({'question_id':qid,'computed':result,'answer':answer,'passed':abs(result-answer)<1e-9,'legacy_only':q.get('retired',False)})
-report={'all_passed':all(c['passed'] for c in checks),'checks':checks,'CPM':{'project_duration':project,'ES':es,'EF':ef,'LS':ls,'LF':lf,'slack':{t:ls[t]-es[t] for t in tasks},'critical_path':[t for t in tasks if ls[t]==es[t]]}}
+free_float={t:min([es[k] for k,(_,pre) in tasks.items() if t in pre],default=project)-ef[t] for t in tasks}
+report={'all_passed':all(c['passed'] for c in checks),'checks':checks,'CPM':{'project_duration':project,'ES':es,'EF':ef,'LS':ls,'LF':lf,'slack':{t:ls[t]-es[t] for t in tasks},'critical_path':[t for t in tasks if ls[t]==es[t]],'supplemental_free_float':free_float,'free_float_origin':'외부 보조 정의를 이용한 검산이며 중간고사 문항 근거로 사용하지 않음'},'reference_numeric_checks':[{'reference_id':'ref-05-057','formula':'50000/200/10','result':50000/200/10,'red_answer':25,'passed':50000/200/10==25},{'reference_id':'ref-05-058','formula':'36000/300/6','result':36000/300/6,'red_answer':20,'passed':36000/300/6==20}]}
 (ROOT/'analysis').mkdir(parents=True,exist_ok=True)
 (ROOT/'analysis/calculation-validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
 print(json.dumps({'calculations':len(checks),'passed':report['all_passed'],'CPM_days':project}))

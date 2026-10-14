@@ -22,6 +22,6 @@ export function ProfessorHints(){
     const target=h.pages[0];
     return <article key={h.id} className={`card hint-card hint-${h.tier}`}><div className="tags"><span className="hint-tag">{hintLabel[h.tier]}</span><span>개념 {completed}/{h.conceptIds.length} 완료</span></div><h3>{h.title}</h3><p>{h.note}</p><div className="hint-meta">관련 페이지 {h.pages.length}곳 · {tier==='excluded'?'CBT 제외':`연결 문제 ${available}개`}</div><div className="hint-actions"><Link className="btn" to={`/classroom/${target.lectureId}/${target.page}`}><BookOpen size={16}/> 강의 보기</Link>{tier!=='excluded'&&<Link className="btn primary" to={`/bank?hint=${h.id}`}><ClipboardCheck size={16}/> 문제 연습 <ArrowRight size={15}/></Link>}</div></article>;
   })}</div></section>)}
-  <div className="card hint-bottom"><h3>학습 방법</h3><p>우선 3R과 매우 중요한 개념을 정확히 암기한 뒤, 중요 개념의 비교·도식 문제로 확장하세요. 빨간색 이외의 일반 강의 내용도 원래 학습 범위에서 제거하지 않았습니다.</p><Link to="/exam" className="btn primary">교수님 힌트 반영 중간고사 CBT 시작 <ArrowRight size={16}/></Link></div>
+  <div className="card hint-bottom"><h3>학습 방법</h3><p>우선 3R과 매우 중요한 개념을 정확히 암기한 뒤, 중요 개념의 비교·도식 문제로 확장하세요. 빨간색 이외의 일반 강의 내용도 원래 학습 범위에서 제거하지 않았습니다.</p><Link to="/exam?mode=hint-focus" className="btn primary">교수님 힌트 집중 CBT 시작 <ArrowRight size={16}/></Link></div>
  </div>
 }
