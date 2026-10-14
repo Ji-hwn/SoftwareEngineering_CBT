@@ -1,12 +1,12 @@
 import {test,expect} from '@playwright/test';
 
-test('hint menu, 14 cards, filtered practice and source page connect on desktop and mobile',async({page},info)=>{
+test('hint menu, 20 cards, filtered practice and source page connect on desktop and mobile',async({page},info)=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('');
  if(info.project.name==='mobile')await page.getByRole('button',{name:'메뉴 열기'}).click();
  await page.getByRole('link',{name:'교수님 시험 힌트',exact:true}).click();
  await expect(page.getByRole('heading',{name:'교수님 시험 힌트',exact:true})).toBeVisible();
- await expect(page.locator('.hint-card')).toHaveCount(14);
+ await expect(page.locator('.hint-card')).toHaveCount(20);
  await expect(page.locator('.hints-notice')).toContainText('PDF');
  const actors=page.locator('.hint-card').filter({has:page.getByRole('heading',{name:'액터의 종류',exact:true})});
  await actors.getByRole('link',{name:/문제 연습/}).click();await expect(page).toHaveURL(/hint=actors/);

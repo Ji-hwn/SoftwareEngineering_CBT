@@ -54,7 +54,7 @@ describe('strict midterm syllabus and professor-style modes',()=>{
   expect(Math.max(...counts)/counts.reduce((a,b)=>a+b,0)).toBeLessThan(.4);
  });
  it('notebook mapping, focused memory and pending source content remain separate from scope',()=>{
-  expect(course.learning_notes).toHaveLength(29);expect(course.focus_sets).toHaveLength(14);
+  expect(course.learning_notes).toHaveLength(29);expect(course.focus_sets).toHaveLength(15);
   expect(course.learning_notes.find(n=>n.note_id==='note-req-process')!.sources.some(s=>s.lecture_id==='L08'&&s.source_page===4)).toBe(true);
   expect(course.learning_notes.find(n=>n.note_id==='note-cpm-calculation')!.supplement?.label).toContain('출제 근거 제외');
   expect(course.questions.find(q=>q.question_id==='q-v2-recall-resource-utilization')!.retired).toBe(true);

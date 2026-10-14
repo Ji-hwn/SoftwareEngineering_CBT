@@ -14,4 +14,5 @@ export function matchesSelectedSources(q:Question,selected:string[]){
   : q.lecture_id===id);
 }
 export const isProfessorStyle=(q:Question)=>q.teacher_style===true&&q.options.length===4&&typeof q.correct_answer==='number';
-export const midtermExclusion=(q:Question)=>q.midterm_excluded===true||raw.exam_scope.xp_excluded_concept_ids.includes(q.concept_id)||raw.exam_scope.xp_excluded_question_ids.includes(q.question_id);
+export const midtermExclusion=(q:Question)=>q.midterm_excluded===true||raw.exam_scope.xp_excluded_concept_ids.includes(q.concept_id)||raw.exam_scope.xp_excluded_question_ids.includes(q.question_id)||raw.exam_scope.question_exclusions.some(rule=>rule.question_ids.includes(q.question_id)||(q.source_pdf===rule.source_file&&q.source_question_number===rule.source_question_number));
+export const hasReviewedAnswer=(q:Question)=>q.verified&&q.quality_status!=='NEEDS_REVIEW';

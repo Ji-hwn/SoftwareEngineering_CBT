@@ -5,7 +5,7 @@ import type {PageContent} from './types';
 import {Practice,SourceLink} from './Question';
 import {Diagram} from './Diagrams';
 import {getPageHints,hintLabel} from './professorHints';
-import {NotionGoals} from './NotionGoals';
+import {NotionGoals,ClassGuidanceGoals} from './NotionGoals';
 
 const pageDiagrams:Record<string,string[]>={
  'L01:13':['lifecycle'],'L01:38':['spiral'],'L01:41':['v-model'],
@@ -36,6 +36,7 @@ export function PageLesson({page}:{page:PageContent}){
   <section><span className="eyebrow">02 / 쉬운 설명 · 자체 제작 학습 보충</span><p>{page.easy}</p></section>
   {diagrams.map(d=><Diagram key={d} kind={d}/>)}
   <NotionGoals lecture={page.lecture_id} page={page.page}/>
+  <ClassGuidanceGoals lecture={page.lecture_id} page={page.page}/>
   <details className="memorize-box"><summary>03 / 이 페이지의 암기 체크리스트</summary><ul>{atoms.map(a=><li key={a.atomic_item_id}>{a.text}</li>)}</ul><Link to={`/memory?lecture=${page.lecture_id}&page=${page.page}&mode=fill`}>핵심 키워드를 직접 입력하며 암기하기 →</Link></details>
   <section><span className="eyebrow">04 / 페이지별 확인</span>{page.question_ids.length?<><button className="btn" onClick={()=>setShowQuestions(v=>!v)}>{showQuestions?'문제 접기':`이 페이지의 확인 문제 ${page.question_ids.length}개`}</button>{showQuestions&&page.question_ids.map(id=><Practice key={id} q={questionMap[id]}/>)}</>:<p>이 페이지는 세부 항목 회상 카드로 확인합니다. 별도의 검증 문항이 아직 연결되지 않은 페이지입니다. <Link to={`/memory?lecture=${page.lecture_id}&page=${page.page}&mode=atomic`}>세부 항목 순환 복습 →</Link></p>}</section>
   <SourceLink source={{lecture_id:page.lecture_id,source_pdf:page.source_pdf,source_page:page.page}}/>

@@ -4,6 +4,7 @@ import {course,studySources,studyPages,questionMap,useStore} from './store';
 import {gradeKeywords,reviewCard,reviewConcept} from './core';
 import {SourceLink} from './Question';
 import type {MemoryCard} from './types';
+import {getConceptHints,hintLabel} from './professorHints';
 
 export function MemoryRoom(){
  const {state,update}=useStore();const [params]=useSearchParams();
@@ -27,7 +28,7 @@ export function MemoryRoom(){
  <select aria-label="암기 필터" value={filter} onChange={e=>{setFilter(e.target.value);reset()}}>{[['all','전체 범위 균형 순환'],['Critical','직접 강조 집중'],['Standard','일반·중요 관련 집중'],['wrong','취약 개념 집중'],['due','오늘 복습 예정'],['unknown','모르는 항목'],['bookmarks','북마크']].map(([v,l])=><option key={v} value={v}>{l}</option>)}</select>
  <select aria-label="암기 유형" value={mode} onChange={e=>{setMode(e.target.value);reset()}}>{[['term','용어 → 정의'],['definition','정의 → 용어 입력'],['fill','핵심 빈칸 입력'],['categories','종류 암기 입력'],['order','순서 암기 입력'],['comparison','비교 암기 입력'],['formula','공식 암기 입력'],['uml','UML 관계 입력'],['atomic','전체 세부 항목 회상']].map(([v,l])=><option key={v} value={v}>{l}</option>)}</select></div>
  {card?<div className="memory-wrap"><div className="memory-progress"><span>카드 {index%cards.length+1} / {cards.length}</span><span>복습: 당일 → 1일 → 3일 → 7일</span></div><article className="flashcard card">
- <div className="tags"><span>{card.importance}</span><span>PDF {card.source_page}p</span></div><h2>{mode==='definition'&&!shown?'정의에서 용어 찾기':card.title}</h2>
+ <div className="tags"><span>{card.importance}</span><span>PDF {card.source_page}p</span>{getConceptHints(card.concept_id).filter(h=>h.id.startsWith('oct14-')).map(h=><span key={h.id}>{hintLabel[h.tier]} · 수업 필기</span>)}</div><h2>{mode==='definition'&&!shown?'정의에서 용어 찾기':card.title}</h2>
  {card.verification_status==='needs-review'&&<p className="review-warning">원본 표현 검수 필요. 이 항목은 자동 정답 판별을 하지 않습니다.</p>}
  {!shown&&<p className="memory-prompt">{card.prompt}</p>}
  {!!card.answer_groups.length&&!shown&&<form onSubmit={e=>{e.preventDefault();check()}}><div className="keyword-inputs">{card.answer_groups.map((_,i)=><label key={i}>빈칸 {i+1}<input aria-label={`빈칸 ${i+1}`} autoComplete="off" value={answers[i]??''} onChange={e=>setAnswers(a=>{const copy=[...a];copy[i]=e.target.value;return copy})}/></label>)}</div><button className="btn primary" disabled={card.answer_groups.some((_,i)=>!answers[i]?.trim())}>입력 답안 채점</button></form>}

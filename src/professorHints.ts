@@ -31,6 +31,12 @@ export const professorHints:ProfessorHint[]=[
  {id:'xp-values',title:'XP의 5가지 핵심 가치',tier:'very-high',note:'용기·존중·의사소통·피드백·단순성 모두 암기. 각 가치의 의미도 구분.',conceptIds:['xp','xp-values'],pages:[{lectureId:'L10',page:7},{lectureId:'L10',page:8}]},
  {id:'scrum',title:'애자일 Scrum',tier:'high',note:'제품/스프린트 백로그·역할을 구분. 일일 스크럼은 매일 약15분이라는 구두 강조를 원본10·11쪽과 연결.',conceptIds:['scrum','product-backlog','sprint-planning','sprint-backlog','daily-scrum','scrum-roles'],pages:[{lectureId:'L10',page:10},{lectureId:'L10',page:11},{lectureId:'L10',page:12}]},
  {id:'xp-practices',title:'XP의 12가지 실천사항',tier:'excluded',note:'교수님이 중간고사에 출제하지 않는다고 언급. 강의·암기에는 남겨 두고 중간고사 모의고사에서만 제외.',conceptIds:['xp-practices'],pages:[{lectureId:'L10',page:9}]},
+ {id:'oct14-dfd',title:'DFD·네 구성요소',tier:'very-high',note:'10월 14일 필기에 따른 반복 학습 우선순위. 표의 네 기호와 Bubble Chart 별칭을 연결. 정보처리기사 기출 언급은 대학 중간고사 출제 확정이 아님.',conceptIds:['oct14-dfd','oct14-dfd-elements'],pages:[{lectureId:'L12',page:7},{lectureId:'L12',page:8}]},
+ {id:'oct14-dd',title:'DD 여섯 기호',tier:'very-high',note:'교수님이 기호 의미를 모두 숙지하라고 안내했다는 사용자 필기. 선택·반복·생략과 정의·연결·주석을 구별.',conceptIds:['oct14-dd-symbols'],pages:[{lectureId:'L12',page:9},{lectureId:'L12',page:10}]},
+ {id:'oct14-rumbaugh',title:'럼바우 모델과 다이어그램',tier:'very-high',note:'Object–Object Diagram, Dynamic–State Diagram, Functional–DFD를 구별. 일반 모델링의 기능적–Use Case와 다른 맥락.',conceptIds:['oct14-rumbaugh','oct14-rumbaugh-object','oct14-rumbaugh-dynamic','oct14-rumbaugh-functional'],pages:[{lectureId:'L12',page:15},{lectureId:'L12',page:16}]},
+ {id:'oct14-case-levels',title:'CASE 세 분류',tier:'very-high',note:'10월 14일 중요 페이지라는 사용자 필기. Upper는 계획·요구분석·설계, Lower는 코드·테스트·문서화, Integrated는 전체 생명주기.',conceptIds:['oct14-case-levels'],pages:[{lectureId:'L12',page:22}]},
+ {id:'oct14-hipo',title:'HIPO 하향식 문서화',tier:'very-high',note:'기능 모듈의 계층 구조와 Top-down을 연결. 정보처리기사 기출에 등장했다는 수업 언급으로 대학 중간고사 출제를 보장하지 않음.',conceptIds:['oct14-hipo'],pages:[{lectureId:'L12',page:23}]},
+ {id:'oct14-hipo-charts',title:'HIPO 세 도표와 영어 이름',tier:'very-high',note:'Visual Table of Contents는 도형 목차·IPO 없음, Overview Diagram은 IPO 개요, Detail Diagram은 더 상세한 기능.',conceptIds:['oct14-hipo-charts'],pages:[{lectureId:'L12',page:25}]},
 ];
 const tiers:HintTier[]=['certain-remark','very-high','high','excluded'];
 export const hintLabel:Record<HintTier,string>={'certain-remark':'100% 출제 언급','very-high':'매우 중요','high':'중요','excluded':'중간고사 제외'};

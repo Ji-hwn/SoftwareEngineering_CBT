@@ -7,7 +7,7 @@ import type {ExamSettings} from './types';
 const settings:ExamSettings={lectures:[],count:20,minutes:30,criticalRatio:70,difficulty:{easy:30,medium:50,hard:20},types:['choice','ox','fill','short','multi','comparison','calculation','uml'],wrongOnly:false};
 describe('professor hint integration and preserved records',()=>{
  it('all hints resolve to existing concepts and real PDF pages',()=>{
-  expect(professorHints).toHaveLength(14);
+  expect(professorHints).toHaveLength(20);
   for(const h of professorHints){
    for(const id of h.conceptIds)expect(course.concepts.some(c=>c.concept_id===id),id).toBe(true);
    for(const p of h.pages)expect(course.pages.some(x=>x.lecture_id===p.lectureId&&x.page===p.page),h.id).toBe(true);

@@ -16,7 +16,7 @@ describe('October 14 syllabus and classroom quiz integration',()=>{
   expect(course.lectures.some(l=>/solution/.test(l.file))).toBe(false);expect(course.quiz_sources.map(q=>[q.lecture_id,q.page_count,q.unique_questions,q.class_date,q.cover_year])).toEqual([['L13',40,19,'2026-10-14',2025],['L14',74,36,'2026-10-14',2025]]);
  });
  it('preserves all 426 existing IDs and the 291 active pre-extension questions',()=>{
-  expect(course.questions.filter(q=>!q.question_id.startsWith('q-oct14-'))).toHaveLength(426);expect(course.questions.filter(q=>!q.retired&&!q.question_id.startsWith('q-oct14-'))).toHaveLength(291);
+  expect(course.questions.filter(q=>!q.question_id.startsWith('q-oct14-')&&!q.question_id.startsWith('q-notes-'))).toHaveLength(426);expect(course.questions.filter(q=>!q.retired&&!q.question_id.startsWith('q-oct14-')&&!q.question_id.startsWith('q-notes-'))).toHaveLength(291);
   expect(course.concepts.filter(c=>!c.concept_id.startsWith('oct14-'))).toHaveLength(132);
  });
  it('all 34 new concepts have a valid learning route, source, card and question',()=>{
@@ -33,7 +33,7 @@ describe('October 14 syllabus and classroom quiz integration',()=>{
  });
  it('class quiz mode only selects reviewed single-answer variants, with ratios and source coverage',()=>{
   const r=selectQuestions(course.questions,{...config,mode:'class-quiz'},emptyState());expect(r.questions).toHaveLength(20);expect(r.actualCritical).toBe(14);expect(r.questions.every(isClassQuiz)).toBe(true);expect(r.questions.some(q=>q.lecture_id==='L12')).toBe(true);expect(r.questions.some(q=>q.concept_id==='3r')).toBe(false);
-  const exhausted=selectQuestions(course.questions,{...config,count:50,mode:'class-quiz'},emptyState());expect(exhausted.questions).toHaveLength(43);expect(exhausted.notice).toContain('43');expect(new Set(exhausted.questions.map(q=>q.question_id)).size).toBe(43);
+  const exhausted=selectQuestions(course.questions,{...config,count:50,mode:'class-quiz'},emptyState());expect(exhausted.questions).toHaveLength(45);expect(exhausted.notice).toContain('45');expect(new Set(exhausted.questions.map(q=>q.question_id)).size).toBe(45);
  });
  it('new lecture and quiz sources enter ordinary and professor-style exams without overriding exclusions',()=>{
   for(const mode of ['mixed','professor-style'] as const){const r=selectQuestions(course.questions,{...config,mode},emptyState());expect(r.questions.some(q=>q.lecture_id==='L12')).toBe(true);expect(r.questions.some(q=>q.concept_id==='3r')).toBe(true);expect(r.questions.some(isMidtermExcluded)).toBe(false);expect(r.actualCritical).toBe(14)}
