@@ -4,8 +4,8 @@ import {emptyState,restore,grade,gradeKeywords,reviewCard,finishExam,selectQuest
 import type {ExamSettings} from './types';
 const settings:ExamSettings={lectures:[],count:20,minutes:30,criticalRatio:70,difficulty:{easy:30,medium:50,hard:20},types:['choice','short','fill','multi','ox','comparison','calculation','uml'],wrongOnly:false};
 describe('precision content contract',()=>{
- it('all 173 learning pages contain their own authored atoms and teaching text',()=>{
-  const pages=course.pages.filter(p=>p.status!=='excluded-nonlearning');expect(pages).toHaveLength(173);
+ it('all 199 learning pages including 26 L12 additions contain their own authored atoms and teaching text',()=>{
+  const pages=course.pages.filter(p=>p.status!=='excluded-nonlearning');expect(pages).toHaveLength(199);
   for(const p of pages){expect(p.title).toBeTruthy();expect(p.easy.length).toBeGreaterThan(30);expect(p.atomic_item_ids.length).toBeGreaterThan(0);for(const id of p.atomic_item_ids){const a=course.atomic_items.find(a=>a.atomic_item_id===id)!;expect(a.lecture_id).toBe(p.lecture_id);expect(a.source_page).toBe(p.page);expect(a.content_reference).toContain(id)}}
  });
  it('3R definition and necessity and relationship code pages do not repeat the same body',()=>{

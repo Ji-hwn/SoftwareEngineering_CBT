@@ -31,7 +31,7 @@ describe('professor hint integration and preserved records',()=>{
    expect(result.questions.filter(isMidtermPriority)).toHaveLength(Math.round(count*.7));
    expect(result.questions.some(q=>q.concept_id==='3r')).toBe(true);
    expect(result.questions.some(q=>q.concept_id==='xp-practices')).toBe(false);
-   expect(new Set(result.questions.map(q=>q.lecture_id)).size).toBe(7);
+   expect(new Set(result.questions.map(q=>q.lecture_id)).size).toBeGreaterThanOrEqual(count===10?8:10);
   }
  });
  it('zero priority and incompatible types do not force 3R',()=>{

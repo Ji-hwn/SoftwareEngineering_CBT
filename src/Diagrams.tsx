@@ -8,6 +8,12 @@ export function Diagram({kind}:{kind:string}){
  if(['generalization','realization','dependency','association','aggregation','composition'].includes(kind)){
  const diamond=kind==='aggregation'||kind==='composition';const triangle=kind==='generalization'||kind==='realization';
  content=<>{box(30,105,diamond?'전체':triangle?'구체적 클래스':'객체 A')}{box(420,105,diamond?'부분':kind==='realization'?'인터페이스':kind==='generalization'?'일반 클래스':'객체 B')}{diamond?<><polygon points="160,127 174,117 188,127 174,137" fill={kind==='composition'?'currentColor':'var(--card)'}/>{line(188,127,420,127,false,'')}</>:line(160,127,420,127,['realization','dependency'].includes(kind),triangle?hollow:kind==='dependency'?open:'')}</>;
+ }else if(kind==='dfd-symbols'){
+ content=<><text x="300" y="22" textAnchor="middle">DFD · 자체 제작 기호표</text>{text(70,70,'A')}<circle cx="175" cy="65" r="25"/>{text(370,70,'B')}{line(430,65,550,65)}{text(70,170,'C')}{line(120,148,240,148,false,'')}{line(120,185,240,185,false,'')}{text(370,170,'D')}<rect x="430" y="140" width="125" height="50"/></>;
+ }else if(kind==='erd-symbols'){
+ content=<>{text(300,25,'ERD · 자체 제작 기호표')}{text(90,100,'A')}<rect x="30" y="130" width="120" height="55"/>{text(300,100,'B')}<circle cx="300" cy="157" r="35"/>{text(510,100,'C')}<polygon points="510,120 565,157 510,195 455,157"/></>;
+ }else if(kind==='hipo-charts'){
+ content=<>{text(95,25,'A')}{box(35,50,'전체 기능',120)}{box(10,140,'모듈 1',80)}{box(110,140,'모듈 2',80)}{line(95,95,50,140,false,'')}{line(95,95,150,140,false,'')}{text(300,25,'B')}{box(210,50,'입력',170)}{box(210,115,'처리 개요',170)}{box(210,180,'출력',170)}{line(295,95,295,115)}{line(295,160,295,180)}{text(505,25,'C')}{box(415,50,'입력 항목 상세',170)}{box(415,115,'기본 요소 상세',170)}{box(415,180,'출력 항목 상세',170)}{line(500,95,500,115)}{line(500,160,500,180)}</>;
  }else if(kind==='include'||kind==='extend'){
  content=<><ellipse cx="140" cy="127" rx="95" ry="40"/><ellipse cx="460" cy="127" rx="95" ry="40"/>{text(140,133,kind==='include'?'등록 기능':'메일 확인')}{text(460,133,kind==='include'?'성적 조회':'검색')}{line(235,127,365,127,true,open)}{text(300,110,kind==='include'?'«include»':'«extend»')}</>;
  }else if(kind==='cpm'){

@@ -1,7 +1,8 @@
 import {readFile,writeFile} from 'node:fs/promises';
 const d=JSON.parse(await readFile('src/data/course.json','utf8'));
-const errors=[],allowed=new Set(d.exam_scope.lecture_ids),lectureMap=new Map(d.lectures.map(l=>[l.lecture_id,l]));
-if(d.lectures.length!==7||d.pages.length!==187||d.pages.filter(p=>p.atomic_item_ids.length).length!==173)errors.push('syllabus changed');
+const errors=[],allowed=new Set([...d.exam_scope.lecture_ids,...d.exam_scope.quiz_source_ids]),lectureMap=new Map([...d.lectures,...d.quiz_sources].map(l=>[l.lecture_id,l]));
+if(d.lectures.length!==d.exam_scope.lecture_ids.length||d.pages.length!==d.lectures.reduce((n,l)=>n+l.page_count,0)||d.pages.filter(p=>p.atomic_item_ids.length).length!==d.lectures.reduce((n,l)=>n+l.learning_pages.length,0))errors.push('syllabus metadata mismatch');
+for(const q of d.quiz_sources)if(!d.exam_scope.quiz_source_ids.includes(q.lecture_id)||q.source_type!=='classroom-quiz'||q.class_date!==d.exam_scope.class_quiz_date)errors.push('unauthorized quiz source');
 for(const l of d.lectures)if(!allowed.has(l.lecture_id)||/solution/i.test(l.file))errors.push(`reference became syllabus ${l.lecture_id}`);
 const active=d.questions.filter(q=>!q.retired),style=active.filter(q=>q.teacher_style),newQuestions=d.questions.filter(q=>q.question_id.startsWith('q-midterm-'));
 for(const q of active){
@@ -18,7 +19,7 @@ for(const n of d.learning_notes)for(const s of n.sources){const l=lectureMap.get
 for(const s of d.focus_sets)if(!s.concept_ids.every(id=>d.concepts.some(c=>c.concept_id===id)))errors.push(`memory set ${s.set_id}`);
 const count=(items,key)=>Object.fromEntries([...new Set(items.map(q=>q[key]))].map(k=>[k,items.filter(q=>q[key]===k).length]));
 const before={stored:352,active:218,choice:47,notion_notes:0,teacher_style_mode:0};
-const report={before,after:{stored:d.questions.length,active:active.length,archived:d.questions.filter(q=>q.retired).length,choice:active.filter(q=>q.question_type==='choice').length,teacher_style:style.length,new_questions:newQuestions.length,upgraded_existing_style:style.length-newQuestions.length,notes:d.learning_notes.length,focus_sets:d.focus_sets.length},
+const report={before,after:{stored:d.questions.length,active:active.length,archived:d.questions.filter(q=>q.retired).length,choice:active.filter(q=>q.question_type==='choice').length,teacher_style:style.length,new_questions:newQuestions.length,oct14_questions:active.filter(q=>q.question_id.startsWith('q-oct14-')).length,upgraded_existing_style:style.filter(q=>!q.question_id.startsWith('q-midterm-')&&!q.question_id.startsWith('q-oct14-')).length,notes:d.learning_notes.length,focus_sets:d.focus_sets.length},
  new_question_styles:count(newQuestions,'style_tag'),new_question_difficulty:count(newQuestions,'difficulty'),
  stored_correct_position:count(newQuestions,'correct_answer'),active_type_distribution:count(active,'question_type'),
  references:d.reference_scope_summary,scope_errors:errors,source_answer_review:'기존·신규 문항의 범위는 원본·학습 항목과 대조. 자동 구조 검사만으로 정답 의미가 증명되지는 않음.',

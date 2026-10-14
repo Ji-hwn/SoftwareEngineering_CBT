@@ -1,6 +1,6 @@
 import type {Answer,Question,StudyState,ExamSettings,Exam} from './types';
 import {isMidtermExcluded,isMidtermPriority,hintScore,getConceptHints} from './professorHints';
-import {inMidtermScope,isProfessorStyle} from './examScope';
+import {inMidtermScope,isProfessorStyle,isClassQuiz} from './examScope';
 export const KEY='jihwanlee-se-cbt-v1';
 export const emptyState=():StudyState=>({version:1,content_revision:2,completed:[],completedPages:[],bookmarks:[],reviews:{},cardReviews:{},memoryAttempts:[],attempts:[],wrong:{},notes:{},history:[],active:null,settings:{theme:'light',font:17,criticalRatio:70,profile:'jihwanlee'},exposure:{}});
 export const normalize=(s:string)=>s.normalize('NFKC').toLocaleLowerCase().replace(/\s+/g,'').trim();
@@ -28,7 +28,7 @@ export function restore(raw:unknown):StudyState {
   const record=(x:unknown)=>!!x&&typeof x==='object'&&!Array.isArray(x);
   if(d.version!==1||!arrayStrings(d.completed)||!arrayStrings(d.bookmarks)||!Array.isArray(d.attempts)||!Array.isArray(d.history)||!record(d.reviews)||!record(d.wrong)||!record(d.notes)||!record(d.exposure)||!record(d.settings)||!['light','dark'].includes(d.settings.theme)||!Number.isFinite(d.settings.font)||d.settings.font<14||d.settings.font>24||!Number.isFinite(d.settings.criticalRatio)||d.settings.criticalRatio<0||d.settings.criticalRatio>100||typeof d.settings.profile!=='string')throw Error('백업 스키마 또는 설정을 확인하세요.');
   if(!Object.values(d.notes).every(x=>typeof x==='string')||!Object.values(d.wrong).every(x=>record(x)&&Number.isFinite(x.count)&&x.count>=0&&Number.isFinite(x.last))||!Object.values(d.reviews).every(x=>record(x)&&Number.isFinite(x.due)&&Number.isInteger(x.step)&&typeof x.unknown==='boolean'&&Number.isFinite(x.reviews))||!Object.values(d.exposure).every(x=>Number.isFinite(x)&&x>=0)||!d.attempts.every(x=>record(x)&&typeof x.question_id==='string'&&typeof x.concept_id==='string'&&typeof x.correct==='boolean'&&Number.isFinite(x.at)))throw Error('백업 학습 기록이 손상되었습니다.');
-  const validExam=(x:Exam)=>record(x)&&typeof x.id==='string'&&arrayStrings(x.question_ids)&&record(x.answers)&&arrayStrings(x.flags)&&Number.isFinite(x.started)&&Number.isFinite(x.deadline)&&record(x.settings)&&arrayStrings(x.settings.lectures)&&(x.settings.mode===undefined||['mixed','professor-style','hint-focus'].includes(x.settings.mode))&&(x.settings.varyWrong===undefined||typeof x.settings.varyWrong==='boolean')&&Number.isFinite(x.settings.count)&&Number.isFinite(x.settings.minutes);
+  const validExam=(x:Exam)=>record(x)&&typeof x.id==='string'&&arrayStrings(x.question_ids)&&record(x.answers)&&arrayStrings(x.flags)&&Number.isFinite(x.started)&&Number.isFinite(x.deadline)&&record(x.settings)&&arrayStrings(x.settings.lectures)&&(x.settings.mode===undefined||['mixed','professor-style','hint-focus','class-quiz'].includes(x.settings.mode))&&(x.settings.varyWrong===undefined||typeof x.settings.varyWrong==='boolean')&&Number.isFinite(x.settings.count)&&Number.isFinite(x.settings.minutes);
   if(!d.history.every(x=>validExam(x)&&Number.isFinite(x.submitted))||(d.active!==null&&!validExam(d.active)))throw Error('백업 시험 기록이 손상되었습니다.');
   // Additive migration: keep the v1 storage key, IDs, answer indexes and absolute exam deadline.
   if(d.completedPages!==undefined&&!arrayStrings(d.completedPages))throw Error('페이지 진도 형식을 확인하세요.');
@@ -52,7 +52,7 @@ export function reviewConcept(state:StudyState,id:string,known:boolean,now=Date.
 export function remaining(exam:Exam,now=Date.now()){return Math.max(0,Math.ceil((exam.deadline-now)/1000))}
 export function selectQuestions(all:Question[],settings:ExamSettings,state:StudyState,rng=Math.random){
   const weakConcepts=new Set(all.filter(q=>state.wrong[q.question_id]).map(q=>q.concept_id));
-  const pool=all.filter(q=>q.verified&&!q.retired&&inMidtermScope(q)&&!isMidtermExcluded(q)&&(settings.mode!=='professor-style'||isProfessorStyle(q))&&(settings.mode!=='hint-focus'||getConceptHints(q.concept_id).some(h=>h.tier!=='excluded'))&&(!settings.lectures.length||settings.lectures.includes(q.lecture_id))&&settings.types.includes(q.question_type)&&(!settings.wrongOnly||(settings.varyWrong?weakConcepts.has(q.concept_id):!!state.wrong[q.question_id])));
+  const pool=all.filter(q=>q.verified&&!q.retired&&inMidtermScope(q)&&!isMidtermExcluded(q)&&(settings.mode!=='professor-style'||isProfessorStyle(q))&&(settings.mode!=='class-quiz'||isClassQuiz(q))&&(settings.mode!=='hint-focus'||getConceptHints(q.concept_id).some(h=>h.tier!=='excluded'))&&(!settings.lectures.length||settings.lectures.includes(q.lecture_id))&&settings.types.includes(q.question_type)&&(!settings.wrongOnly||(settings.varyWrong?weakConcepts.has(q.concept_id):!!state.wrong[q.question_id])));
   const groups=(qs:Question[])=>new Set(qs.map(q=>q.selection_family??q.question_id)).size;
   const count=Math.min(settings.count,groups(pool));const target=Math.round(count*settings.criticalRatio/100);
   const crit=pool.filter(isMidtermPriority);const normal=pool.filter(q=>!isMidtermPriority(q));

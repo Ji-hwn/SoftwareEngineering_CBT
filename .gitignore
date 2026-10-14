@@ -34,3 +34,6 @@ PROFESSOR_MIDTERM_HINTS.md
 reference_quizzes/
 scripts/analyze_reference_quizzes.py
 scripts/refine_midterm.py
+
+scripts/analyze_oct14.py
+scripts/refine_oct14.py

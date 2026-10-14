@@ -3,6 +3,8 @@ import type {Course,StudyState} from './types';
 import raw from './data/course.json';
 import {KEY,loadState,finishExam,remaining} from './core';
 export const course=raw as unknown as Course;
+export const studySources=[...course.lectures,...course.quiz_sources];
+export const studyPages=[...course.pages,...course.quiz_pages];
 export const conceptMap=Object.fromEntries(course.concepts.map(c=>[c.concept_id,c]));
 export const questionMap=Object.fromEntries(course.questions.map(q=>[q.question_id,q]));
 export const atomicMap=Object.fromEntries(course.atomic_items.map(a=>[a.atomic_item_id,a]));

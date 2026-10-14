@@ -7,8 +7,8 @@ import {optionOrder} from './Question';
 import type {ExamSettings} from './types';
 const settings:ExamSettings={lectures:[],count:20,minutes:30,criticalRatio:70,difficulty:{easy:30,medium:50,hard:20},types:['choice','comparison','uml','multi','ox','short','fill','calculation'],wrongOnly:false};
 describe('strict midterm syllabus and professor-style modes',()=>{
- it('keeps seven lectures and rejects unreviewed or solution-only sources',()=>{
-  expect(course.lectures.map(l=>l.lecture_id).sort()).toEqual(['L01','L03','L06','L08','L09','L09-extra','L10']);
+ it('keeps eight general lectures and separately authorized classroom quizzes and rejects unreviewed or solution-only sources',()=>{
+  expect(course.lectures.map(l=>l.lecture_id).sort()).toEqual(['L01','L03','L06','L08','L09','L09-extra','L10','L12']);
   const q=course.questions.find(q=>isProfessorStyle(q))!;
   for(const fake of [{...q,lecture_id:'L11'},{...q,source_pdf:'소프트웨어공학_Lecture_11_solution.pdf'},{...q,scope_status:'NEEDS_REVIEW' as const},{...q,scope_status:'OUT_OF_SCOPE' as const},{...q,scope_status:undefined},{...q,source_page:999}]){
    expect(inMidtermScope(fake)).toBe(false);expect(selectQuestions([fake],settings,emptyState()).questions).toHaveLength(0);
@@ -19,7 +19,7 @@ describe('strict midterm syllabus and professor-style modes',()=>{
    const result=selectQuestions(course.questions,{...settings,count,mode:'professor-style'},emptyState(),()=>.5);
    expect(result.questions).toHaveLength(count);expect(result.actualCritical).toBe(Math.round(count*.7));
    expect(result.questions.every(q=>isProfessorStyle(q)&&inMidtermScope(q)&&!isMidtermExcluded(q))).toBe(true);
-   expect(result.questions.some(q=>q.concept_id==='3r')).toBe(true);expect(new Set(result.questions.map(q=>q.lecture_id)).size).toBe(7);
+   expect(result.questions.some(q=>q.concept_id==='3r')).toBe(true);expect(new Set(result.questions.map(q=>q.lecture_id)).size).toBeGreaterThanOrEqual(count===10?8:10);
   }
  });
  it('respects narrow lecture/type filters and returns available count without duplicates',()=>{
@@ -54,7 +54,7 @@ describe('strict midterm syllabus and professor-style modes',()=>{
   expect(Math.max(...counts)/counts.reduce((a,b)=>a+b,0)).toBeLessThan(.4);
  });
  it('notebook mapping, focused memory and pending source content remain separate from scope',()=>{
-  expect(course.learning_notes).toHaveLength(29);expect(course.focus_sets).toHaveLength(13);
+  expect(course.learning_notes).toHaveLength(29);expect(course.focus_sets).toHaveLength(14);
   expect(course.learning_notes.find(n=>n.note_id==='note-req-process')!.sources.some(s=>s.lecture_id==='L08'&&s.source_page===4)).toBe(true);
   expect(course.learning_notes.find(n=>n.note_id==='note-cpm-calculation')!.supplement?.label).toContain('출제 근거 제외');
   expect(course.questions.find(q=>q.question_id==='q-v2-recall-resource-utilization')!.retired).toBe(true);

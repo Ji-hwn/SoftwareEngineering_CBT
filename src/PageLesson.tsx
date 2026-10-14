@@ -25,7 +25,7 @@ export function PageLesson({page}:{page:PageContent}){
  const id=`${page.lecture_id}:${page.page}`;
  const atoms=page.atomic_item_ids.map(id=>atomicMap[id]);
  const hints=getPageHints(page.lecture_id,page.page);
- const diagrams=pageDiagrams[id]??(page.duplicate_source?pageDiagrams[`${page.duplicate_source.lecture_id}:${page.duplicate_source.source_page}`]??[]:[]);
+ const diagrams=page.diagrams??pageDiagrams[id]??(page.duplicate_source?pageDiagrams[`${page.duplicate_source.lecture_id}:${page.duplicate_source.source_page}`]??[]:[]);
  if(!atoms.length)return null;
  return <article className="card concept page-lesson" aria-label="현재 페이지 고유 학습 내용">
   <div className="tags"><span>PDF {page.page}p</span><span>{atoms.length}개 세부 항목</span><span>원본 기반 재구성</span></div>
