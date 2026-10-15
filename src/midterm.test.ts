@@ -5,7 +5,8 @@ import {isMidtermPriority,isMidtermExcluded,getConceptHints} from './professorHi
 import {inMidtermScope,isProfessorStyle} from './examScope';
 import {optionOrder} from './Question';
 import type {ExamSettings} from './types';
-const settings:ExamSettings={lectures:[],count:20,minutes:30,criticalRatio:70,difficulty:{easy:30,medium:50,hard:20},types:['choice','comparison','uml','multi','ox','short','fill','calculation'],wrongOnly:false};
+// Historical 70:30 expectations remain in the explicit general-study option.
+const settings:ExamSettings={scope_mode:'general-study',lectures:[],count:20,minutes:30,criticalRatio:70,difficulty:{easy:30,medium:50,hard:20},types:['choice','comparison','uml','multi','ox','short','fill','calculation'],wrongOnly:false};
 describe('strict midterm syllabus and professor-style modes',()=>{
  it('keeps eight general lectures and separately authorized classroom quizzes and rejects unreviewed or solution-only sources',()=>{
   expect(course.lectures.map(l=>l.lecture_id).sort()).toEqual(['L01','L03','L06','L08','L09','L09-extra','L10','L12']);
@@ -54,7 +55,7 @@ describe('strict midterm syllabus and professor-style modes',()=>{
   expect(Math.max(...counts)/counts.reduce((a,b)=>a+b,0)).toBeLessThan(.4);
  });
  it('notebook mapping, focused memory and pending source content remain separate from scope',()=>{
-  expect(course.learning_notes).toHaveLength(29);expect(course.focus_sets).toHaveLength(15);
+  expect(course.learning_notes).toHaveLength(29);expect(course.focus_sets.filter(s=>s.set_id!=='verified-red-only')).toHaveLength(15);
   expect(course.learning_notes.find(n=>n.note_id==='note-req-process')!.sources.some(s=>s.lecture_id==='L08'&&s.source_page===4)).toBe(true);
   expect(course.learning_notes.find(n=>n.note_id==='note-cpm-calculation')!.supplement?.label).toContain('출제 근거 제외');
   expect(course.questions.find(q=>q.question_id==='q-v2-recall-resource-utilization')!.retired).toBe(true);

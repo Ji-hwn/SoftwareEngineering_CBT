@@ -16,3 +16,15 @@ export function matchesSelectedSources(q:Question,selected:string[]){
 export const isProfessorStyle=(q:Question)=>q.teacher_style===true&&q.options.length===4&&typeof q.correct_answer==='number';
 export const midtermExclusion=(q:Question)=>q.midterm_excluded===true||raw.exam_scope.xp_excluded_concept_ids.includes(q.concept_id)||raw.exam_scope.xp_excluded_question_ids.includes(q.question_id)||raw.exam_scope.question_exclusions.some(rule=>rule.question_ids.includes(q.question_id)||(q.source_pdf===rule.source_file&&q.source_question_number===rule.source_question_number));
 export const hasReviewedAnswer=(q:Question)=>q.verified&&q.quality_status!=='NEEDS_REVIEW';
+// An allowlist of individually reviewed decisions, never a concept/importance shortcut.
+const approvedRedIds=new Set(raw.red_scope.approved_question_ids);
+const redEvidence=new Map(raw.red_scope.evidence.map(e=>[e.evidence_id,e]));
+export function isRedEligible(q:Question){
+ return approvedRedIds.has(q.question_id)&&q.red_scope_status==='IN_SCOPE_RED'&&
+  hasReviewedAnswer(q)&&!q.retired&&!midtermExclusion(q)&&inMidtermScope(q)&&
+  !!q.red_evidence_ids?.length&&q.red_evidence_ids.every(id=>{
+   const e=redEvidence.get(id),l=e&&lectures.get(e.lecture_id);
+   return e?.verified&&e.category==='A'&&l?.file===e.source_pdf&&!/solution/i.test(e.source_pdf)&&e.source_page>=1&&e.source_page<=l.page_count;
+  });
+}
+export const redStatusLabels:Record<string,string>={IN_SCOPE_RED:'실전 · 빨간 강조 검증',OUT_OF_SCOPE:'일반 학습 · 강조 범위 밖',NEEDS_REVIEW:'강조 근거 검수 보류',EXPLICITLY_EXCLUDED:'교수님 명시적 제외',LEGACY_ONLY:'과거 기록 보관'};

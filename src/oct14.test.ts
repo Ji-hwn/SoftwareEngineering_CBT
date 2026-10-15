@@ -4,7 +4,8 @@ import {selectQuestions,emptyState,grade,restore,recordAnswer} from './core';
 import {inMidtermScope,isClassQuiz,matchesSelectedSources} from './examScope';
 import {isMidtermExcluded} from './professorHints';
 import type {ExamSettings} from './types';
-const config:ExamSettings={lectures:[],count:20,minutes:30,criticalRatio:70,difficulty:{easy:30,medium:50,hard:20},types:['choice','comparison','uml','calculation','multi','short','fill','ox'],wrongOnly:false};
+// Preserve full-syllabus regression coverage separately from red-only midterm tests.
+const config:ExamSettings={scope_mode:'general-study',lectures:[],count:20,minutes:30,criticalRatio:70,difficulty:{easy:30,medium:50,hard:20},types:['choice','comparison','uml','calculation','multi','short','fill','ox'],wrongOnly:false};
 describe('October 14 syllabus and classroom quiz integration',()=>{
  it('quiz-only selection includes mapped general-lecture variants and excludes unrelated topics',()=>{
   for(const id of ['L13','L14']){const r=selectQuestions(course.questions,{...config,mode:'class-quiz',lectures:[id]},emptyState());expect(r.questions.length).toBeGreaterThan(10);expect(r.questions.some(q=>q.lecture_id==='L12')).toBe(true);expect(r.questions.every(q=>matchesSelectedSources(q,[id]))).toBe(true)}
@@ -16,7 +17,7 @@ describe('October 14 syllabus and classroom quiz integration',()=>{
   expect(course.lectures.some(l=>/solution/.test(l.file))).toBe(false);expect(course.quiz_sources.map(q=>[q.lecture_id,q.page_count,q.unique_questions,q.class_date,q.cover_year])).toEqual([['L13',40,19,'2026-10-14',2025],['L14',74,36,'2026-10-14',2025]]);
  });
  it('preserves all 426 existing IDs and the 291 active pre-extension questions',()=>{
-  expect(course.questions.filter(q=>!q.question_id.startsWith('q-oct14-')&&!q.question_id.startsWith('q-notes-'))).toHaveLength(426);expect(course.questions.filter(q=>!q.retired&&!q.question_id.startsWith('q-oct14-')&&!q.question_id.startsWith('q-notes-'))).toHaveLength(291);
+  expect(course.questions.filter(q=>!q.question_id.startsWith('q-oct14-')&&!q.question_id.startsWith('q-notes-')&&!q.question_id.startsWith('q-red-'))).toHaveLength(426);expect(course.questions.filter(q=>!q.retired&&!q.question_id.startsWith('q-oct14-')&&!q.question_id.startsWith('q-notes-')&&!q.question_id.startsWith('q-red-'))).toHaveLength(291);
   expect(course.concepts.filter(c=>!c.concept_id.startsWith('oct14-'))).toHaveLength(132);
  });
  it('all 34 new concepts have a valid learning route, source, card and question',()=>{

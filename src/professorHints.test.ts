@@ -4,7 +4,8 @@ import {emptyState,selectQuestions,grade,restore,finishExam} from './core';
 import {professorHints,isMidtermPriority,recordedPriority} from './professorHints';
 import type {ExamSettings} from './types';
 
-const settings:ExamSettings={lectures:[],count:20,minutes:30,criticalRatio:70,difficulty:{easy:30,medium:50,hard:20},types:['choice','ox','fill','short','multi','comparison','calculation','uml'],wrongOnly:false};
+// Historical 70:30 expectations remain in the explicit general-study option.
+const settings:ExamSettings={scope_mode:'general-study',lectures:[],count:20,minutes:30,criticalRatio:70,difficulty:{easy:30,medium:50,hard:20},types:['choice','ox','fill','short','multi','comparison','calculation','uml'],wrongOnly:false};
 describe('professor hint integration and preserved records',()=>{
  it('all hints resolve to existing concepts and real PDF pages',()=>{
   expect(professorHints).toHaveLength(20);

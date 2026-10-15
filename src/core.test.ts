@@ -4,7 +4,8 @@ import raw from './data/course.json';
 import type {Course,ExamSettings,Question,Exam} from './types';
 const course=raw as unknown as Course;
 const q=(type:string)=>course.questions.find(q=>q.question_type===type)!;
-const settings:ExamSettings={lectures:[],count:20,minutes:30,criticalRatio:70,difficulty:{easy:30,medium:50,hard:20},types:['choice','ox','fill','short','multi','comparison','calculation','uml'],wrongOnly:false};
+// Historical 70:30 expectations remain in the explicit general-study option.
+const settings:ExamSettings={scope_mode:'general-study',lectures:[],count:20,minutes:30,criticalRatio:70,difficulty:{easy:30,medium:50,hard:20},types:['choice','ox','fill','short','multi','comparison','calculation','uml'],wrongOnly:false};
 describe('grading and answer semantics',()=>{
  it('handles numeric choice index zero without treating it as unanswered',()=>expect(grade(q('choice'),0)).toBe(true));
  it('requires exactly the multiple choices without missing or additional values',()=>{const m=q('multi');expect(grade(m,m.correct_answer)).toBe(true);expect(grade(m,[])).toBe(false);expect(grade(m,[...(m.correct_answer as number[]),3])).toBe(false)});
