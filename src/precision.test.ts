@@ -2,7 +2,8 @@ import {describe,it,expect} from 'vitest';
 import {course,questionMap} from './store';
 import {emptyState,restore,grade,gradeKeywords,reviewCard,finishExam,selectQuestions} from './core';
 import type {ExamSettings} from './types';
-const settings:ExamSettings={lectures:[],count:20,minutes:30,criticalRatio:70,difficulty:{easy:30,medium:50,hard:20},types:['choice','short','fill','multi','ox','comparison','calculation','uml'],wrongOnly:false};
+// Historical 70:30 expectations remain in the explicit general-study option.
+const settings:ExamSettings={scope_mode:'general-study',lectures:[],count:20,minutes:30,criticalRatio:70,difficulty:{easy:30,medium:50,hard:20},types:['choice','short','fill','multi','ox','comparison','calculation','uml'],wrongOnly:false};
 describe('precision content contract',()=>{
  it('all 199 learning pages including 26 L12 additions contain their own authored atoms and teaching text',()=>{
   const pages=course.pages.filter(p=>p.status!=='excluded-nonlearning');expect(pages).toHaveLength(199);

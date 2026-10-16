@@ -21,8 +21,8 @@ test('hint menu, 20 cards, filtered practice and source page connect on desktop 
  await page.screenshot({path:`analysis/${info.project.name}-professor-hints.png`,fullPage:true});expect(errors).toEqual([]);
 });
 
-test('new midterm includes 3R, preserves 70 percent and excludes XP; grading persists',async({page})=>{
- await page.goto('#/exam');await expect(page.getByText(/XP의 12가지 실천사항\(L10 9p\)/)).toBeVisible();
+test('general study includes 3R, preserves 70 percent and excludes XP; grading persists',async({page})=>{
+ await page.goto('#/exam?scope=general-study');await expect(page.getByText(/XP의 12가지 실천사항\(L10 9p\)/)).toBeVisible();
  await page.getByRole('button',{name:'시험 시작하기'}).click();await expect(page.locator('.explanation')).toHaveCount(0);
  const before=await page.evaluate(()=>JSON.parse(localStorage.getItem('jihwanlee-se-cbt-v1')!).active);
  expect(before.question_ids).toHaveLength(20);

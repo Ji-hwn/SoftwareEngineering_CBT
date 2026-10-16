@@ -42,3 +42,8 @@
 .sidebar{overflow-y:auto}
 
 .notion-goals{margin:24px 0;border-top:1px solid var(--line);padding-top:20px}.notion-goals article{margin:16px 0;padding:16px;border:1px solid var(--line);border-radius:12px}.notion-goals h4{margin:10px 0}.notion-goals li{line-height:1.8;margin:6px 0}.notion-goals .actions{flex-wrap:wrap;margin:12px 0}.option-rationales ol{padding:0;list-style:none}.option-rationales li{margin:14px 0}.option-rationales p{color:var(--muted);margin-top:6px}
+
+.red-scope-box {border:1px solid var(--line);border-radius:12px;padding:18px;margin:16px 0;background:var(--surface)}
+.red-scope-box li {margin:12px 0;overflow-wrap:anywhere}
+.red-scope-box small {display:block;margin-top:4px}
+.red-question-scope {margin:12px 0;color:var(--text-secondary);overflow-wrap:anywhere}

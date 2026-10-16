@@ -7,7 +7,7 @@ const guidanceLabels:Record<string,string>={'professor-emphasis':'교수님 중�
 export function ClassGuidanceGoals({lecture,page}:{lecture:string;page:number}){
  const notes=course.class_guidance.filter(n=>n.lecture_id===lecture&&n.source_page===page);
  if(!notes.length)return null;
- return <section className="class-guidance notion-goals" aria-label="10월 14일 필기와 원본 대조"><h3>10월 14일 수업 필기 · 원본 대조</h3>
+ return <section className="class-guidance notion-goals" aria-label="10월 14일 필기와 원본 대조"><h3>10월 14일 수업 필기 · 원본 대조</h3><p className="notice">수업 필기의 범위·중요도는 당시 기록입니다. 최신 실전은 위의 직접 강조와 검증된 강조 주제의 관련 본문을 함께 승인합니다. 수업 언급과 Solution 정답 색만으로 새 독립 주제를 편입하지 않습니다.</p>
   {notes.map(n=><article key={n.note_id}><div className="tags">{n.reported_kinds.map(kind=><span key={kind}>{guidanceLabels[kind]}</span>)}{n.priority&&<span>반복 학습 우선</span>}</div><h4>{n.title}</h4><p>{n.reported_summary}</p>
    <strong>핵심 회상 · 자체 정리</strong><ul>{n.goals.map(g=><li key={g}>{g}</li>)}</ul><strong>원본에 근거한 쉬운 설명</strong><p>{n.explanation}</p>
    {n.confusion&&<p className="notice">헷갈리기 쉬운 설명: {n.confusion}</p>}{n.review_note&&<p className="review-warning">해석 보류·표기 메모: {n.review_note}</p>}
