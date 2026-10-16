@@ -13,7 +13,7 @@ describe('final professor guidance and exact exclusion',()=>{
   expect(course.pages.filter(p=>p.atomic_item_ids.length)).toHaveLength(199);
   for(const n of course.class_guidance){expect(course.pages.some(p=>p.lecture_id===n.lecture_id&&p.page===n.source_page&&p.source_pdf===n.source_pdf)).toBe(true);expect(n.question_ids.length).toBeGreaterThan(0);expect(n.goals.length).toBeGreaterThan(0)}
   for(const page of [8,9,16,22,25,26,27])expect(course.memory_cards.some(c=>c.card_id===`card-L12-p${String(page).padStart(3,'0')}`)).toBe(true);
-  expect(course.memory_cards.filter(c=>c.mode!=='red')).toHaveLength(1427);expect(course.memory_cards.filter(c=>c.mode==='red')).toHaveLength(course.red_scope.evidence.length);expect(course.concepts).toHaveLength(166);
+  expect(course.memory_cards.filter(c=>c.mode!=='red')).toHaveLength(1427);expect(course.memory_cards.filter(c=>c.mode==='red')).toHaveLength(course.red_scope.evidence.filter(e=>e.category==='A').length);expect(course.concepts).toHaveLength(166);
  });
  it('the explicit rule identifies precisely L14 question 28, its direct variant and date',()=>{
   expect(course.exam_scope.question_exclusions).toHaveLength(1);const rule=course.exam_scope.question_exclusions[0];

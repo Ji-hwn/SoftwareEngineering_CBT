@@ -38,3 +38,4 @@ scripts/refine_midterm.py
 scripts/analyze_oct14.py
 scripts/refine_oct14.py
 scripts/refine_red_scope.py
+scripts/refine_topic_scope.py
